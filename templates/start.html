@@ -1,0 +1,409 @@
+<html lang="de">
+
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=yes"/>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Oswald"/>
+    <title data-template="config:app-title"/>
+
+    <meta name="description" content="Briefverkehr der Stadt St. Gallen"/>
+    <meta itemprop="name" content="Briefverkehr der Stadt St. Gallen"/>
+    <meta itemprop="description" content="Briefverkehr der Stadt St. Gallen"/>
+    <meta property="og:locale" content="de"/>
+    <meta property="og:url" content=""/>
+    <meta property="og:site_name" content="Briefverkehr der Stadt St. Gallen"/>
+    <meta property="og:title" content="Briefverkehr der Stadt St. Gallen - Startseite"/>
+    <meta property="og:description" content="Briefverkehr der Stadt St. Gallen"/>
+
+    <meta content="summary_large_image" name="twitter:card"/>
+    <meta name="twitter:title" content="Briefverkehr der Stadt St. Gallen - Startseite"/>
+    <meta name="twitter:description" content="Briefverkehr der Stadt St. Gallen"/>
+    <link rel="canonical" href=""/>
+
+    <link rel="shortcut icon" type="image/x-icon" href="resources/images/favicon.ico"/>
+    <link rel="shortcut icon" type="image/png" href="resources/images/favicon-16.png" sizes="16x16"/>
+    <link rel="shortcut icon" type="image/png" href="resources/images/favicon-24.png" sizes="24x24"/>
+    <link rel="shortcut icon" type="image/png" href="resources/images/favicon-32.png" sizes="32x32"/>
+    <link rel="shortcut icon" type="image/png" href="resources/images/favicon-64.png" sizes="64x64"/>
+    <link rel="stylesheet" href="resources/css/theme.css"/>
+    <link rel="stylesheet" href="resources/css/theme-rqzh.css"/>
+    <script type="module" src="pb-components-bundle.js" data-template="pages:load-components"/>
+    <script src="resources/scripts/browse.js"/>
+    <custom-style>
+        <style>
+
+            @media (max-width: 1023px) {
+                .doclist {
+                    margin-bottom: 20px;
+                }
+                .documents {
+                    padding-left: 10px;
+                }
+                .documents .label {
+                    display: none;
+                }
+                .toolbar pb-search {
+                    padding-left: 0;
+                }
+                #facets {
+                    display: none;
+                }
+            }
+
+            pb-results {
+                overflow: scroll;
+                margin: 0 20px;
+                height: calc(100vh - 128px);
+            }
+
+            @media (min-width: 1024px) {
+                .toolbar {
+                    display: none;
+                }
+                .panels {
+                    display: flex;
+                    flex-direction: row;
+                }
+            }
+
+            .doclist {
+                --paper-tabs-selection-bar-color: #607D8B;
+                margin-right: 1rem;
+                --paper-tab-content: {
+                    font-family: "Oswald", Verdana, "Helvetica", sans-serif;
+                    font-weight: 400;
+                }
+                ;
+                --paper-card-header: {
+                    background-color: #d1dae0;
+                }
+                ;
+                --paper-card-header-text: {
+                    font-family: "Oswald", Verdana, "Helvetica", sans-serif;
+                    font-size: 16px;
+                    font-weight: 400;
+                }
+                ;
+            }
+
+            .document-count {
+                display: inline-block;
+                font-family: var(--pb-heading-font-family);
+                font-weight: 400;
+                margin-bottom: 1rem;
+                background-color: var(--pb-timeline-background-color-title);
+                padding: 4px;
+                border-radius: 10px;
+                color: #f0f0f0;
+            }
+
+            .panels .doclist .card-content {
+                padding: 0;
+            }
+
+            .panels .doclist .browse {
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                padding: 0;
+            }
+
+            main {
+                animation: fadeInAnimation ease 3s;
+                animation-iteration-count: 1;
+                animation-fill-mode: forwards;
+            }
+
+            main.faded {
+                animation: fadeOutAnimation ease 3s;
+                animation-iteration-count: 1;
+                animation-fill-mode: forwards;
+            }
+ 
+            @keyframes fadeInAnimation {
+                0% {
+                    opacity: 0;
+                }
+                100% {
+                    opacity: 1;
+                }
+            }
+
+            @keyframes fadeOutAnimation {
+                0% {
+                    opacity: 1;
+                }
+                100% {
+                    opacity: 0;
+                }
+            }
+
+            aside .upload {
+                --paper-card-header: {
+                    background-color: #607D8B;
+                }
+                ;
+                --paper-card-header-text: {
+                    font-family: "Oswald", Verdana, "Helvetica", sans-serif;
+                    font-size: 16px;
+                    font-weight: 400;
+                    color: white;
+                }
+                ;
+            }
+
+            .documents app-toolbar {
+                @apply --layout-start-justified;
+                font-size: 14px;
+                margin-top: 10px;
+                padding-left: 0;
+            }
+
+            .documents div {
+                margin: 0;
+            }
+
+            .documents .error {
+                color: #c02020;
+            }
+
+            .documents .document-select {
+                flex: 0 0;
+                margin-right: 20px;
+            }
+
+            aside.search {
+                min-width: 220px;
+            }
+
+            .subtype {
+                list-style: none;
+            }
+            
+            #facets {
+                flex: 0;
+            }
+
+            #facets pb-combo-box {
+                margin-bottom: .5rem;
+            }
+
+            #facets div {
+                margin-bottom: .75rem;
+            }
+
+            #facets pb-combo-box .ts-control input::placeholder {
+                font-family: var(--pb-heading-font-family);
+                font-weight: 400 !important;
+            }
+
+            #facets h3, #facets h4 {
+                font-size: 1em;
+                margin: 0 0 .5rem 0;
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+            }
+
+            #facets h3 paper-checkbox {
+                margin-left: 16px;
+                font-size: 11px;
+            }
+
+            #facets table {
+                font-size: 14px;
+            }
+
+            #facets table table {
+                padding-left: 16px;
+                width: 100%;
+            }
+
+            #facets table td {
+                padding: 4px 0;
+            }
+
+            #facets table td:nth-child(2) {
+                color: #808080;
+                text-align: right;
+                padding-left: 1em;
+                vertical-align: middle;
+            }
+            .tei-hi2 {
+                font-size: 80%;
+                vertical-align: top;
+            }
+
+            .volume .part {
+                padding-right: 1.5em;
+            }
+
+            .volume .count {
+                margin-left: 20px;
+                padding: 4px;
+                border-radius: 10px;
+                color: #f0f0f0;
+                font-size: var(--pb-base-font-size);
+                background-color: var(--pb-timeline-background-color-title);
+            }
+            .reference{
+                cursor:pointer;
+                color:rgb(17, 247, 17);
+            }
+
+            .collection {
+                margin-bottom: 1rem;
+            }
+
+            pb-i18n[key="by"]::after {
+                content: ' ';
+            }
+
+            .timeline {
+                --pb-timeline-padding: 0 20px;
+            }
+        </style>
+    </custom-style>
+</head>
+
+<body>
+    <pb-page data-template="pages:pb-page" locales="resources/i18n/{{ns}}/{{lng}}.json" require-language="require-language" unresolved="unresolved" api-version="1.0.0" supported-languages="de" url-ignore="sort">
+        <app-drawer-layout force-narrow="force-narrow">
+
+            <app-drawer data-template="templates:include" data-template-path="templates/drawer.html"/>
+
+            <app-header-layout>
+
+                <app-header slot="header" reveals="reveals" fixed="fixed" effects="waterfall">
+                    <app-toolbar data-template="templates:include" data-template-path="templates/menu.html"/>
+                </app-header>
+
+                <section>
+                    <div class="pb-container">
+                        <h1 class="tp-title">Briefverkehr der Stadt St. Gallen</h1>
+                    </div>
+                </section>
+
+                <section>
+                    <div class="pb-container">
+                        <div class="main-grid" data-template="app:set-default-params">
+                            <main class="main-grid__item">
+                                <!-- <div class="header card-padding">
+                                    <h2>
+                                        <pb-i18n key="browse.documents">Documents</pb-i18n>
+                                        </h2>
+                                </div>
+                                -->
+
+                                <div class="card-content card-padding">
+                                   <div class="browse" slot="page">
+                                        <div class="timeline">
+                                            <pb-timeline url="api/timeline" scopes="[&#34;D&#34;, &#34;M&#34;, &#34;Y&#34;, &#34;5Y&#34;, &#34;10Y&#34;]" resettable="" max-interval="80" subscribe="search" emit="search">
+                                                <span slot="label">
+                                                        <pb-i18n key="period-shown"/> </span>
+                                            </pb-timeline>
+                                         <!--   <div>
+                                                <label>
+                                                        <pb-i18n key="set-period"/>
+                                                    </label>
+                                                <pb-i18n key="period-from"/> <input id="period-start"/> <pb-i18n key="period-to"/> <input id="period-end"/>
+                                                <paper-button id="period-submit">
+                                                        <pb-i18n key="period-change"/>
+                                                    </paper-button>
+                                            </div> -->
+                                        </div> 
+                                        <div id="document-list">
+                                            <pb-load url="api/collection/{collection}" expand="" emit="search"/>
+                                            <pb-paginate id="paginate" per-page="10" range="5" subscribe="search" emit="search"/>
+                                        </div>
+                                    </div>
+                                </div>
+                            </main>
+                            <aside class="search">
+                                <pb-custom-form id="genre">
+                                 <pb-select label="browse.sort" name="sort" value="${sort}" data-template="pages:parse-params">
+                                                    <paper-item value="send-date">Datum aufsteigend</paper-item>
+                                                    <paper-item value="send-date-reverse">Datum absteigend</paper-item>
+                                            </pb-select> 
+                                    <pb-select label="searchScope" name="subtype" value="document" data-template="pages:parse-params">
+                                                <paper-item value="regest">
+                                                        <pb-i18n key="searchText"/>
+                                                    </paper-item>
+                                                 <paper-item value="text">
+                                                        <pb-i18n key="searchEdition"/>
+                                                    </paper-item>
+                                                    <paper-item value="document">
+                                                <pb-i18n key="searchDocument"/>
+                                            </paper-item>
+                                            </pb-select>
+                                </pb-custom-form>
+                                <pb-search subscribe="search" data-template="pages:parse-params" value="${query}" submit-on-load="" subforms="#genre,#options,#facets">
+                                    <paper-button slot="searchButton">
+                                            <pb-i18n key="browse.search"/>
+                                        </paper-button>
+                                </pb-search>
+
+                                <h4>
+                                        <pb-i18n key="filters"/>
+                                    </h4>
+                                <pb-custom-form id="options" class="options">
+                                    <input type="hidden" name="dates" value="" data-template="templates:form-control"/>
+                                 <!--   <input type="hidden" name="date-min" value="" data-template="templates:form-control"/>
+                                    <input type="hidden" name="date-max" value="" data-template="templates:form-control"/> -->
+                                    <input type="hidden" name="collection" value="" data-template="templates:form-control"/>
+                                </pb-custom-form>
+                                <pb-custom-form id="facets" class="facets options" url="api/search/facets" event="pb-results-received" subscribe="search"/>
+                            </aside>
+
+
+                            <pb-restricted class="upload-panel main-grid__item" login="login">
+                                <aside class="upload" data-i18n="[heading]upload.upload" heading="Upload">
+                                    <pb-upload id="upload" emit="search" accept=".xml, .tei, .odd, .docx" target="temp"/>
+                                </aside>
+                            </pb-restricted>
+
+                        </div>
+                    </div>
+                </section>
+
+                <footer class="version" style="display:none">
+                    App: v<span data-template="pages:version"/> /
+                    web components: v<pb-version/>
+                </footer>
+            </app-header-layout>
+        </app-drawer-layout>
+
+        <paper-dialog id="downloadDialog">
+            <h2>
+                <pb-i18n key="dialogs.generatingFile">Generating File...</pb-i18n>
+            </h2>
+            <paper-dialog-scrollable>
+                <pb-i18n key="dialogs.downloadMessage"/>
+            </paper-dialog-scrollable>
+            <div class="buttons">
+                <paper-button dialog-confirm="dialog-confirm" autofocus="autofocus">
+                    <pb-i18n key="dialogs.close">Close</pb-i18n>
+                </paper-button>
+            </div>
+        </paper-dialog>
+
+        <paper-dialog id="errorDialog">
+            <h2>
+                <pb-i18n key="dialogs.error">Error</pb-i18n>
+            </h2>
+            <paper-dialog-scrollable/>
+            <div class="buttons">
+                <paper-button dialog-confirm="dialog-confirm" autofocus="autofocus">
+                    <pb-i18n key="dialogs.close">Close</pb-i18n>
+                </paper-button>
+            </div>
+        </paper-dialog>
+    </pb-page>
+
+    <div class="splash"/>
+
+    <footer data-template="templates:include" data-template-path="templates/footer.html"/>
+    <script data-template="templates:include" data-template-path="templates/matomo.html"/>
+</body>
+
+</html>

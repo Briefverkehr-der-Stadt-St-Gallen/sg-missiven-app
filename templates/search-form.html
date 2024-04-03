@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<aside  class="main-grid__item">
+    <div class="header card-padding">
+        <h2>
+            <pb-i18n key="browse.search">Suche</pb-i18n>
+            <a href="#" id="search-info">
+                <iron-icon icon="info"></iron-icon>
+            </a>
+        </h2>
+    </div>
+
+    <div class="card-content card-padding">
+
+        <pb-search submit-buttons="true" id="search-form" action="${app}/search.html" subforms="#options" subscribe="search" data-template="pages:parse-params"
+            value="${query}" submit-on-load="submit-on-load" redirect="redirect" data-i18n="[place-holder]search-query-attr">
+            <pb-select name="type" value="${type}" data-template="pages:parse-params" slot="beforeInput">
+                <paper-item value="text"><pb-i18n key="text">Text</pb-i18n></paper-item>
+                <paper-item value="person"><pb-i18n key="person">Person</pb-i18n></paper-item>
+                <paper-item value="organisation"><pb-i18n key="organisation">Organisation</pb-i18n></paper-item>
+                <paper-item value="places"><pb-i18n key="register.place">Place</pb-i18n></paper-item>
+                <paper-item value="lemma"><pb-i18n key="register.lemma">Lemma</pb-i18n></paper-item>
+                <paper-item value="keywords"><pb-i18n key="register.keywords">Keywords</pb-i18n></paper-item>
+            </pb-select>
+            <input type="hidden" name="refresh" value="true"/>
+            <input type="hidden" name="sort" id="hiddenSort" value="${sort}" data-template="pages:parse-params"/>
+
+            <div class="panel-body">
+                <h4><pb-i18n key="genre"/></h4>
+                <paper-checkbox id="bearbeitungstext" data-template="pages:parse-params"><pb-i18n key="searchText"/></paper-checkbox>
+
+                <ul class="subtype">
+                    <li>
+                        <paper-checkbox name="subtype" class="bearbeitungstext" value="title"><pb-i18n key="title"/></paper-checkbox>
+                    </li>
+                    <li>
+                        <paper-checkbox name="subtype" class="bearbeitungstext" value="idno"><pb-i18n key="signatur"/></paper-checkbox>
+                    </li>
+                    <li>
+                        <paper-checkbox name="subtype" class="bearbeitungstext" value="regest"><pb-i18n key="regest"/></paper-checkbox>
+                    </li>
+                    <li>
+                        <paper-checkbox name="subtype" class="bearbeitungstext" value="comment"><pb-i18n key="comment"/></paper-checkbox>
+                    </li>
+                    <li>
+                        <paper-checkbox name="subtype" class="bearbeitungstext" value="notes"><pb-i18n key="notes"/></paper-checkbox>
+                    </li>
+                    <li>
+                        <paper-checkbox name="subtype" class="bearbeitungstext" value="seal"><pb-i18n key="seal"/></paper-checkbox>
+                    </li>
+                </ul>
+                <paper-checkbox name="subtype" value="edition" data-template="pages:parse-params"><pb-i18n key="searchEdition"/></paper-checkbox>
+
+                <h4><pb-i18n key="filters"/></h4>
+
+                <div class="filter-grid">
+
+                    <label class="flexend"><pb-i18n key="period"/>: <span id="time-range"></span></label>
+                </div>
+
+                <fieldset class="sidebar fieldset">
+                    <legend class="sr-only">Filter search results by language</legend>
+                    <label for="filterLanguage"><pb-i18n key="language"></pb-i18n></label>
+                    <ul id="filterLanguage" class="filter-language-form" name="filter-language" data-template="templates:form-control">
+                        <li>
+                            <input type="checkbox" id="de" class="filter-language-input" name="filter-language" value="Deutsch" />
+                            <label for="de">DE</label>
+                        </li>
+                        <li>
+                            <input type="checkbox" id="fr" class="filter-language-input" name="filter-language" value="Französisch" />
+                            <label for="fr">FR</label>
+                        </li>
+                        <li>
+                            <input type="checkbox" id="lat" class="filter-language-input" name="filter-language" value="Latein" />
+                            <label for="lat">LAT</label>
+                        </li>
+                    </ul>
+                </fieldset>
+
+                <pb-select name="filter-archive" data-i18n="[label]archive" value="${filter-archive}" data-template="pages:parse-params">
+                    <paper-item value=""></paper-item>
+                    <paper-item  data-template="search:list-archives"> </paper-item>
+                </pb-select>
+
+                <!--pb-select name="filter-pubplace" data-i18n="[label]origPlace" value="${filter-pubplace}" data-template="pages:parse-params">
+                    <paper-item value=""></paper-item>
+                    <paper-item value="yes"><pb-i18n key="yes">ja-falsch</pb-i18n></paper-item>
+                    <paper-item value="no"><pb-i18n key="no">nein-falsch</pb-i18n></paper-item>
+                </pb-select-->
+
+                <!--pb-select name="filter-author" data-i18n="[label]scribe" value="${filter-author}" data-template="pages:parse-params">
+                    <paper-item value=""></paper-item>
+                    <paper-item  data-template="search:list-scribes"> </paper-item>
+                </pb-select-->
+
+                <pb-select name="filter-seal" data-i18n="[label]seal" value="${filter-seal}" data-template="pages:parse-params">
+                    <paper-item value=""></paper-item>
+                    <paper-item value="yes"><pb-i18n key="yes">ja</pb-i18n></paper-item>
+                    <paper-item value="no"><pb-i18n key="no">nein</pb-i18n></paper-item>
+                </pb-select>
+
+                <pb-select name="filter-filiation" data-i18n="[label]filliation" value="${filter-filiation}" data-template="pages:parse-params">
+                    <paper-item value=""/>
+                    <paper-item value="Abschrift"><pb-i18n key="Abschrift">Abschrift</pb-i18n></paper-item>
+                    <paper-item value="Aufzeichnung"><pb-i18n key="Aufzeichnung">Aufzeichnung</pb-i18n></paper-item>
+                    <paper-item value="Band"><pb-i18n key="Band">Band</pb-i18n></paper-item>
+                    <paper-item value="Druckschrift"><pb-i18n key="Druckschrift">Druckschrift</pb-i18n></paper-item>
+                    <paper-item value="Einblattdruck"><pb-i18n key="Einblattdruck">Einblattdruck</pb-i18n></paper-item>
+                    <paper-item value="Eintrag"><pb-i18n key="Eintrag">Eintrag</pb-i18n></paper-item>
+                    <paper-item value="Entwurf"><pb-i18n key="Entwurf">Entwurf</pb-i18n></paper-item>
+                    <paper-item value="Insert"><pb-i18n key="Insert">Insert</pb-i18n></paper-item>
+                    <paper-item value="Heft"><pb-i18n key="Heft">Heft</pb-i18n></paper-item>
+                    <paper-item value="Original"><pb-i18n key="Original">Original</pb-i18n></paper-item>
+                    <paper-item value="Vidimus"><pb-i18n key="Vidimus">Vidimus</pb-i18n></paper-item>
+                </pb-select>
+
+                <pb-select name="filter-material" data-i18n="[label]material" value="${filter-material}" data-template="pages:parse-params">
+                    <paper-item value=""/>
+                    <paper-item value="Papier"><pb-i18n key="paper"/></paper-item>
+                    <paper-item value="Pergament"><pb-i18n key="parchment"/></paper-item>
+
+                </pb-select>
+
+                <!--pb-select name="filter-condition" data-i18n="[label]condition" value="${filter-condition}" data-template="pages:parse-params">
+                    <paper-item value=""/>
+                    <paper-item value="yes"><pb-i18n key="yes">ja</pb-i18n></paper-item>
+                    <paper-item value="no"><pb-i18n key="no">nein</pb-i18n></paper-item>
+                </pb-select-->
+
+                <div class="buttons">
+                    <paper-button slot="resetButton"><pb-i18n key="reset"></pb-i18n></paper-button>
+                    <paper-button slot="searchButton"><pb-i18n key="search"></pb-i18n></paper-button>
+                </div>
+
+            </div>
+        </pb-search>
+        <paper-dialog id="query-help-dialog">
+            <h2><pb-i18n key="help-title">Erläuterungen zur Suche</pb-i18n></h2>
+            <paper-dialog-scrollable>
+                <pb-document id="help-text" path="help" odd="rqzh"/>
+                <pb-view src="help-text" view="single" use-language="use-language" 
+                        xpath="//div[@xml:lang=tokenize(request:get-parameter('user.language', ()), '-')[1] or @xml:lang='de'][1]"
+                        disable-history="">
+                </pb-view>
+            </paper-dialog-scrollable>
+            <div class="buttons">
+                <paper-button dialog-confirm="dialog-confirm" autofocus="autofocus">
+                    <pb-i18n key="dialogs.close">Close</pb-i18n>
+                </paper-button>
+            </div>
+        </paper-dialog>
+    </div>
+    <script defer="defer">
+        const trigger = document.getElementById('search-info');
+        trigger.addEventListener('click', function(ev) {
+            ev.preventDefault();
+            document.getElementById('query-help-dialog').open();
+        });
+    </script>
+</aside>

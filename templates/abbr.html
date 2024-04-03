@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html lang="de">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=yes"/>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Oswald"/>
+    <title data-template="config:app-title"/>
+
+    <meta name="description" content="Briefverkehr der Stadt St. Gallen"/>
+    <meta itemprop="name" content="Briefverkehr der Stadt St. Gallen"/>
+    <meta itemprop="description" content="Briefverkehr der Stadt St. Gallen"/>
+
+    <meta property="og:locale" content="de"/>
+    <meta property="og:url" content=""/>
+    <meta property="og:site_name" content="Briefverkehr der Stadt St. Gallen"/>
+    <meta property="og:title" content="Rechtsquellen des Kantons Zürich - Abkürzungen"/>
+    <meta property="og:description" content="Briefverkehr der Stadt St. Gallen"/>
+
+    <meta content="summary_large_image" name="twitter:card"/>
+    <meta name="twitter:title" content="Rechtsquellen des Kantons Zürich - Abkürzungen"/>
+    <meta name="twitter:description" content="Briefverkehr der Stadt St. Gallen"/>
+    <link rel="canonical" url=""/>
+
+    <link rel="shortcut icon" type="image/x-icon" href="resources/images/favicon.ico"/>
+    <link rel="shortcut icon" type="image/png" href="resources/images/favicon-16.png" sizes="16x16"/>
+    <link rel="shortcut icon" type="image/png" href="resources/images/favicon-32.png" sizes="32x32"/>
+    <!-- For iPhone -->
+    <link rel="apple-touch-icon" type="image/png" sizes="180x180" href="apple-touch-icon.png"/>
+    <!-- For Android -->
+    <link rel="icon" type="image/png" sizes="512x512" href="resources/images/android-chrome-512x512.png"/>
+    <link rel="icon" type="image/png" sizes="192x192" href="resources/images/android-chrome-192x192.png"/>  
+    <link rel="stylesheet" type="text/css" href="resources/fonts/font.css"/>
+    <link rel="stylesheet" href="resources/css/theme.css"/>
+    <link rel="stylesheet" href="resources/css/theme-rqzh.css"/>
+
+    <script data-template="pages:load-components" src="pb-components-bundle.js" type="module"/>
+</head>
+
+
+<body>
+<pb-page data-template="pages:pb-page" supported-languages="de" locales="resources/i18n/{{ns}}/{{lng}}.json" unresolved="unresolved" require-language="require-language" api-version="1.0.0">
+    <app-drawer-layout force-narrow="force-narrow">
+        <app-drawer data-template="templates:include" data-template-path="templates/drawer.html"/>
+
+        <app-header-layout>
+            <app-header slot="header" reveals="reveals" fixed="fixed" effects="waterfall">
+                <app-toolbar data-template="templates:include" data-template-path="templates/menu.html"/>
+            </app-header>
+
+            <section>
+                <div class="pb-container">
+                    <h1 class="tp-title"><pb-i18n key="abbreviations"></pb-i18n></h1>
+                </div>
+            </section>
+
+            <section>
+                <div class="pb-container">
+                    <main class="abbr-list" id="abbreviations">
+                        <pb-load url="api/abbreviations" use-language="use-language" auto="auto"></pb-load>
+                    </main>
+                </div>
+            </section>
+            <footer data-template="templates:include" data-template-path="templates/footer.html"/>
+        </app-header-layout>
+    </app-drawer-layout>
+</pb-page>
+<div class="splash"/>
+<script data-template="templates:include" data-template-path="templates/matomo.html"/>
+</body>
+</html>

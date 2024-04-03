@@ -1,0 +1,272 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html lang="de">
+    <head>
+        <meta charset="utf-8"/>
+        <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=yes"/>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Oswald"/>
+        <title data-template="config:app-title"/>
+
+        <meta name="description" content="Briefverkehr der Stadt St. Gallen"/>
+        <meta itemprop="name" content="Briefverkehr der Stadt St. Gallen"/>
+        <meta itemprop="description" content="Briefverkehr der Stadt St. Gallen"/>
+
+        <meta property="og:locale" content="de"/>
+        <meta property="og:url" content=""/>
+        <meta property="og:site_name" content="Briefverkehr der Stadt St. Gallen"/>
+        <meta property="og:title" content="Rechtsquellen des Kantons Zürich - Suche"/>
+        <meta property="og:description" content="Briefverkehr der Stadt St. Gallen"/>
+
+        <meta content="summary_large_image" name="twitter:card"/>
+        <meta name="twitter:title" content="Rechtsquellen des Kantons Zürich - Suche"/>
+        <meta name="twitter:description" content="Briefverkehr der Stadt St. Gallen"/>
+        <link rel="canonical" href=""/>
+
+        <link rel="shortcut icon" type="image/x-icon" href="resources/images/favicon.ico"/>
+        <link rel="shortcut icon" type="image/png" href="resources/images/favicon-16.png" sizes="16x16"/>
+        <link rel="shortcut icon" type="image/png" href="resources/images/favicon-32.png" sizes="32x32"/>
+        <!-- For iPhone -->
+        <link rel="apple-touch-icon" type="image/png" sizes="180x180" href="apple-touch-icon.png"/>
+        <!-- For Android -->
+        <link rel="icon" type="image/png" sizes="512x512" href="resources/images/android-chrome-512x512.png"/>
+        <link rel="icon" type="image/png" sizes="192x192" href="resources/images/android-chrome-192x192.png"/> <link rel="stylesheet" href="resources/css/theme.css"/>
+        <link rel="stylesheet" href="resources/css/theme-rqzh.css"/>
+
+        <script type="module" src="pb-components-bundle.js" data-template="pages:load-components"/>
+        <script src="resources/scripts/app/index.js"></script>
+        <script src="resources/scripts/app/app.js"></script>
+
+        <style>
+
+            .search-results {
+                width: 100%;
+                height: 100%;
+            }
+            .search-results .filter-grid .right{
+                display: grid;
+                grid-template-columns: 40% auto 40%;
+            }
+            .search-results .filter-grid > label{
+                padding-bottom: 8px;
+            }
+            .search-results .filter-grid .until {
+                align-self:flex-end;
+                margin-bottom:0.5rem;
+                display:inline-block;
+                text-align: center;
+            }
+            .search-results .filter-grid .flexend{
+                align-self: flex-end;
+            }
+            .search-results h3{
+                padding:1rem;
+                background: #d1dae0;
+                margin:0;
+            }
+
+            .search-results .formrow{
+                margin-top:1rem;
+            }
+            .search-results .formrow label{
+                padding:1.5rem 0 1rem 0;
+            }
+
+            .card-padding paper-card {
+                width: 100%;
+            }
+            .card-padding .formrow{
+                margin-top:1rem;
+            }
+            .card-padding .formrow label{
+                padding:1.5rem 0 1rem 0;
+            }
+            .card-padding .subtype{
+                padding-left:2rem;
+            }
+
+            .targets paper-checkbox {
+                margin-top: 10px;
+            }
+
+            #results a {
+                color:var(--rqzh-link-color);
+                cursor: pointer;
+            }
+
+            #results a.hi {
+                background: #FCEA60;
+                padding: 0 0.2rem 0.3rem 0.2rem;
+            }
+
+            #results .count {
+                margin-right: 20px;
+                font-weight: bold;
+            }
+            #results h4{
+                margin:0.625rem 0;
+                line-height: 1.1;
+            }
+            #results h5{
+                margin:0.625rem 0;
+            }
+
+            #results .matches {
+                line-height: 27px;
+            }
+
+            #results .matches p {
+                font-family: var(--pb-content-font-family);
+                font-size: 1em;
+                line-height: 1.6em;
+                margin: 0 0 1rem 0;
+            }
+
+            #results .matches p *{
+                display: inline;
+            }
+
+            #results paper-card {
+                width: 100%;
+                margin-bottom: 15px;
+                padding: 1rem 1rem 0.5rem 1rem;
+            }
+
+            #results header {
+                display: flex;
+                justify-content: flex-start;
+            }
+
+            #results .count {
+                margin-right: 20px;
+                font-weight: bold;
+            }
+            .breadcrumb:link, .breadcrumb:visited {
+                text-decoration: none;
+                color: var(--paper-grey-600);
+            }
+            .breadcrumb:before {
+                content: '&gt;';
+                padding: 0 8px;
+                font-weight: bold;
+            }
+            .breadcrumb:first-child::before {
+                content: '';
+            }
+
+            #facets h3 {
+                display: flex;
+                flex-direction: row;
+                align-self: center;
+                justify-content: space-between;
+            }
+
+            #facets h3 paper-checkbox {
+                font-size: 85%;
+            }
+
+            #facets table td:nth-child(2) {
+                color: #808080;
+                text-align: right;
+                padding-left: 1em;
+                vertical-align: middle;
+            }
+
+            .search-sidebar {
+                padding: 1rem 1rem 1rem 0;
+            }
+
+        </style>
+    </head>
+
+    <body>
+        <pb-page data-template="pages:pb-page" unresolved="unresolved" locales="resources/i18n/{{ns}}/{{lng}}.json" require-language="require-language" api-version="1.0.0">
+            <app-drawer-layout force-narrow="force-narrow">
+
+                <app-drawer data-template="templates:include" data-template-path="templates/drawer.html"/>
+
+                <app-header-layout>
+
+                    <app-header slot="header" reveals="reveals" fixed="fixed" effects="waterfall">
+                        <app-toolbar data-template="templates:include" data-template-path="templates/menu.html"/>
+                    </app-header>
+
+                    <section>
+                        <div class="pb-container">
+                            <h1 class="tp-title"><pb-i18n key="doctitle"></pb-i18n></h1>
+                        </div>
+                    </section>
+
+                    <div class="pb-container">
+                        <div class="main-grid" data-template="search:set-default-params">
+                            <main class="main-grid__item">
+                                <div class="header card-padding">
+                                    <h2>
+                                        <pb-i18n key="search-results">Search Results</pb-i18n>
+                                    </h2>
+                                </div>
+
+                                <div class="card-padding">
+                                    <pb-timeline url="api/timeline" scopes='["D", "M", "Y", "5Y", "10Y"]'
+                                        resettable="" max-interval="80"
+                                        subscribe="docs" emit="timeline">
+                                        <span slot="label">Angezeigter Zeitraum: </span>
+                                    </pb-timeline>
+                                </div>
+                                <div class="search__toolbar card-padding">
+
+                                    <pb-paginate per-page="20" range="5" subscribe="docs"/>
+
+                                    <pb-select id="sort-select" name="sort" data-i18n="[label]sorting" value="${sort}" data-template="pages:parse-params">
+                                        <paper-item value="date"><pb-i18n key="browse.orig-date">Date</pb-i18n></paper-item>
+                                        <paper-item value="title"><pb-i18n key="title">Title</pb-i18n></paper-item>
+                                    </pb-select>
+                                </div>
+
+                                <div class="card-content">
+                                    <pb-load id="results" class="card-padding" url="${app}/search-results.html" data-template="pages:parse-params" emit="docs"/>
+                                    <app-toolbar class="bottom-pagination">
+                                        <pb-paginate per-page="20" range="5" subscribe="docs"/>
+                                    </app-toolbar>
+                                    <pb-custom-form id="options" emit="search" style="display: none">
+                                        <input slot="searchButtonBottom" type="hidden" name="dates" value="" data-template="templates:form-control"/>
+                                    </pb-custom-form>
+                                </div>
+                            </main>
+                            
+                            <!-- search sidebar -->
+                            <div data-template="templates:include" data-template-path="templates/search-form.html"></div>
+
+                        </div>
+                    </div>
+
+                </app-header-layout>
+
+            </app-drawer-layout>
+        </pb-page>
+
+        <div class="splash"/>
+
+        <script>
+            const facets = document.getElementById('facets');
+            if (facets) {
+                facets.addEventListener('pb-custom-form-loaded', function(ev) {
+                    const elems = ev.detail.querySelectorAll('.facet');
+                    elems.forEach(facet =&gt; {
+                        facet.addEventListener('change', () =&gt; {
+                            const table = facet.closest('table');
+                            if (table) {
+                                const nested = table.querySelectorAll('.nested .facet').forEach(nested =&gt; {
+                                    if (nested != facet) {
+                                        nested.checked = false;
+                                    }
+                                });
+                            }
+                            facets._submit();
+                        });
+                    });
+                });
+            }
+
+            const typeC = document.querySelector('[name="type"]');
+        </script>
+    </body>
+</html>

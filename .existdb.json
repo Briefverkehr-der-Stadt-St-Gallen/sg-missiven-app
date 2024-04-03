@@ -1,0 +1,31 @@
+{
+    "servers": {
+        "localhost": {
+            "server": "http://localhost:8080/exist",
+            "user": "admin",
+            "password": ""
+        }
+    },
+    "sync": {
+        "server": "localhost",
+        "root": "/db/apps/stgm",
+        "active": true,
+        "polling": true,
+        "ignore": [
+            ".existdb.json",
+            ".git/**",
+            ".gitignore",
+            "node_modules/**",
+            "build/**",
+            "builds/**",
+            "bower_components/**",
+            ".idea",
+            ".vscode",
+            ".duncdrum/**",
+            ".DS_Store", 
+            "cypress/videos/**",
+            "cypress/screenshots/**",
+            ".devcontainer/**"
+        ]
+    }
+}

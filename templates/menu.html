@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<app-toolbar class="menubar">
+    <a href="${app}/index.html" class="logo" data-template="pages:parse-params"/>
+    <pb-media-query query="(min-width: 1024px)">
+
+        <a href="${app}/start.html" data-template="pages:parse-params">
+            <pb-i18n key="menu.missiven">Missiven</pb-i18n>
+        </a>
+
+        <paper-menu-button>
+            <a href="#" slot="dropdown-trigger">
+                <pb-i18n key="menu.register">Register</pb-i18n>
+            </a>
+            <paper-listbox slot="dropdown-content">
+                <paper-item>
+                    <a href="${app}/namen/" data-template="pages:parse-params">
+                        <pb-i18n key="menu.people">Namen</pb-i18n>
+                    </a>
+                </paper-item>
+                <paper-item>
+                    <a href="${app}/orte/" data-template="pages:parse-params">
+                        <pb-i18n key="menu.places">Orte</pb-i18n>
+                    </a>
+                </paper-item>
+                <paper-item>
+                    <a href="${app}/begriffe/" data-template="pages:parse-params">
+                        <pb-i18n key="menu.keywords">Begriffe</pb-i18n>
+                    </a>
+                </paper-item>
+            </paper-listbox>
+        </paper-menu-button>
+        <pb-search action="${app}/start.html" data-template="pages:parse-params" value="${query}" redirect="redirect"/>
+        <div main-title="main-title"/>
+      
+
+        <paper-menu-button style="margin-right:2rem;">
+            <a href="#" slot="dropdown-trigger">
+                <pb-i18n key="menu.about">Über die Edition</pb-i18n>
+            </a>            
+            <paper-listbox slot="dropdown-content">
+                <paper-item>
+                    <a href="${app}/ueber-das-projekt" data-template="pages:parse-params">
+                        <pb-i18n key="menu.project">Über das Projekt</pb-i18n>
+                    </a>
+                </paper-item>
+                <paper-item>
+                    <a href="${app}/editionsrichtlinien" data-template="pages:parse-params">
+                        <pb-i18n key="menu.guidelines">Editionsrichtlinien</pb-i18n>
+                    </a>
+                </paper-item>
+                <paper-item>
+                    <a href="${app}/auswahlbibliographie" data-template="pages:parse-params">
+                        <pb-i18n key="menu.bibliography">Auswahlbibliographie</pb-i18n>
+                    </a>
+                </paper-item>
+                <paper-item>
+                    <a href="${app}/impressum" data-template="pages:parse-params">
+                        <pb-i18n key="menu.imprint">Impressum</pb-i18n>
+                    </a>
+                </paper-item>
+            </paper-listbox>
+        </paper-menu-button>
+    </pb-media-query>
+
+    <pb-media-query query="(max-width: 1023px)">
+        <div main-title="main-title"/>
+        <paper-icon-button icon="icons:menu" drawer-toggle="drawer-toggle"/>
+    </pb-media-query>
+
+    <pb-progress indeterminate="indeterminate" bottom-item="bottom-item" subscribe="search"/>
+
+</app-toolbar>

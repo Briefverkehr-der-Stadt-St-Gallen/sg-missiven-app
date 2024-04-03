@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html lang="de">
+
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=yes"/>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Oswald"/>
+    <title data-template="config:app-title"/>
+
+    <meta name="description" content="Briefverkehr der Stadt St. Gallen"/>
+    <meta itemprop="name" content="Briefverkehr der Stadt St. Gallen"/>
+    <meta itemprop="description" content="Briefverkehr der Stadt St. Gallen"/>
+    <meta property="og:locale" content="de"/>
+    <meta property="og:url" content=""/>
+    <meta property="og:site_name" content="Briefverkehr der Stadt St. Gallen"/>
+    <meta property="og:title" content="Briefverkehr der Stadt St. Gallen"/>
+    <meta property="og:description" content="Briefverkehr der Stadt St. Gallen"/>
+
+    <meta content="summary_large_image" name="twitter:card"/>
+    <meta name="twitter:title" content="Briefverkehr der Stadt St. Gallen"/>
+    <meta name="twitter:description" content="Briefverkehr der Stadt St. Gallen"/>
+    <link rel="canonical" href=""/>
+
+    <link rel="shortcut icon" type="image/x-icon" href="resources/images/favicon.ico"/>
+    <link rel="shortcut icon" type="image/png" href="resources/images/favicon-16.png" sizes="16x16"/>
+    <link rel="shortcut icon" type="image/png" href="resources/images/favicon-32.png" sizes="32x32"/>
+    <!-- For iPhone -->
+    <link rel="apple-touch-icon" type="image/png" sizes="180x180" href="apple-touch-icon.png"/>
+    <!-- For Android -->
+    <link rel="icon" type="image/png" sizes="512x512" href="resources/images/android-chrome-512x512.png"/>
+    <link rel="icon" type="image/png" sizes="192x192" href="resources/images/android-chrome-192x192.png"/>    <link rel="stylesheet" href="resources/css/theme.css"/>
+    <link rel="stylesheet" href="resources/css/theme-rqzh.css"/>
+    <script type="module" src="pb-components-bundle.js" data-template="pages:load-components"/>
+    <script src="resources/scripts/app/app.js"/>
+    <script src="resources/scripts/app/index.js"/>
+    <custom-style>
+        <style>
+            html {
+                --landing-page-max-height:60vh;
+                --page-max-width:62rem;
+            }
+            main {
+                margin: 32px auto 0 auto;
+                max-width: var(--page-max-width);
+            }
+
+            h1 {
+                margin-top: 0;
+            }
+
+            .split-two {
+                display: grid;
+                grid-template-columns: 40% auto;
+                max-width: var(--page-max-width);
+                width:100%;
+                grid-gap:1rem;
+
+            }
+            .left {
+                display:grid;
+                grid-template-rows: repeat(5,1fr);
+                grid-gap:1rem;
+            }
+            .right {
+                max-height: var(--landing-page-max-height);
+                max-width: calc(var(--page-max-width) / 2);
+                justify-self: center;
+            }
+            .title-image {
+                display:block;
+            }
+
+            .title-image img {
+                max-height: var(--landing-page-max-height);
+
+            }
+            .box {
+                box-sizing: border-box;
+                border:1px solid black;
+            }
+            .box:hover {
+                opacity: 80%;
+                transition: opacity 0.6s;
+            }
+            .box.edition{ background-color: rgba(0, 118, 189,0.3)}
+            .box.sources{ background-color: rgba(0, 118, 189,0.3)}
+            .box.places{ background-color: rgba(0, 118, 189,0.2)}
+            .box.people{ background-color: rgba(0, 118, 189,0.2)}
+            .box.keywords{ background-color:rgba(0, 118, 189,0.2)}
+
+            .box .bottom{
+                padding-left:1rem;
+                padding-right:1rem;
+            }
+
+            @media (max-width: 1023px) {
+                main {
+                    display: block;
+                    margin: 32px 10px 0 10px;
+                }              
+            }
+        </style>
+    </custom-style>
+</head>
+
+<body>
+    <pb-page data-template="pages:pb-page" supported-languages="de" locales="resources/i18n/{{ns}}/{{lng}}.json" require-language="require-language" unresolved="unresolved" api-version="1.0.0">
+        <app-drawer-layout force-narrow="force-narrow">
+
+            <app-drawer data-template="templates:include" data-template-path="templates/drawer.html"/>
+
+            <app-header-layout>
+
+                <app-header slot="header" reveals="reveals" fixed="fixed" effects="waterfall">
+                    <app-toolbar data-template="templates:include" data-template-path="templates/menu.html"/>
+                </app-header>
+
+                <main class="homepage">
+                    <h1>Auswahlbibliographie im Zusammenhang mit dieser Edition</h1>
+
+                    <p>Brugmann, Thomas, «Unser fruntlich willig dienst zuo vor». Spätmittelalterliche Nachrichtenübermittlung über den Bodensee, in: Schriften des Vereins für Geschichte des Bodensees und seiner Umgebung, 132/2014, S. 41-56. [ <a href="resources/pdfs/Bruggmann_Unser_fruntlich_willig_dienst_2014.pdf" target="_blank">PDF</a> ]</p>
+
+                    <p>Klingenberg, Daniel, Affären, Missbrauchsgerüchte und Bodenseepiraten, in: St. Galler Tagblatt, Samstag 5. März 2022, S. 26-27. [ <a href="resources/pdfs/Klingenberg_Affaeren_Missbrauchsgeruechte_Bodenseepiraten_2022.pdf" target="_blank">PDF</a> ]</p>
+
+                    <p>Mächler, Alina, Missiven im 15. Jahrhundert. Anliegen und Sprache der Missiven aus Appenzell, Lindau und Zürich an St. Gallen von 1423 bis 1471. Unveröffentlichte Masterarbeit 2020. Universität Zürich.</p>
+
+                    <p>Mächler, Alina / Glaser, Elvira, Amtliche Kommunikation im Bodenseeraum. Frühneuhochdeutsche Missiven des 15. Jahrhunderts, in: Kanzleien, Kanzleitypen, Kanzleinormen und Schreiberindividuen. Beiträge der 11. Tagung des Arbeitskreises Historische Kanzleisprachenforschung, 07. bis 10. September 2022, im Druck.</p>
+
+                    <p>Sonderegger, Stefan, Politik, Kommunikation und Wirtschaft über den See. Zu den Beziehungen im Bodenseegebiet im Spätmittelalter, in: Heimatkundliche Blätter für den Kreis Biberach 31/2008, S. 34-45. [ <a href="resources/pdfs/Sonderegger_Politik_Kommunikation_und_Wirtschaft_ueber_den_See_2008.pdf" target="_blank">PDF</a> ]</p>
+
+                    <p>Sonderegger, Stefan, Steinach – Stadtsanktgaller Satellit im fürstäbtischen Territorium, in: Mayer Marcel / Hassler Gitta (Hg.), Die Steinach. Natur, Geschichte, Kunst und Gewässerschutz vom Birt zum Bodensee, St. Gallen 2012, S. 96–104. [ <a href="resources/pdfs/Sonderegger_Steinach_Stadtsanktgaller_Satellit_im_fuerstaebtischen_Territorium_2012.pdf" target="_blank">PDF</a> ]</p>
+
+                    <p>Sonderegger, Stefan, Das Bodenseegebiet als historische Region, Verein Expo Bodensee Ostschweiz 2027, Juli 2013. [ <a href="resources/pdfs/Sonderegger_Das_Bodenseegebiet_als_historische_Region_2013.pdf" target="_blank">PDF</a> ]</p>
+
+                    <p>Sonderegger, Stefan, Austausch über den Bodensee im Spätmittelalter und in der Frühen Neuzeit. Perspektiven einer Edition von Missiven der ehemaligen Reichsstadt St. Gallen, in: Derschka Harald / Klöckler Jürgen / Zotz Thomas (Hg .): Konstanz und der Südwesten des Reiches im hohen und späten Mittelalter. Festschrift für Helmut Maurer zum 80. Geburtstag (Konstanzer Geschichts- und Rechtsquellen XLVIII), Ostfildern 2017, S. 171-187. [ <a href="resources/pdfs/Sonderegger_Austausch_ueber_den_Bodensee_2017.pdf" target="_blank">PDF</a> ]</p>
+
+                    <p>Stadelmann, Nicole, Aus dem Stadtarchiv: «Betrug – Verzweiflung – Gefängnis. Geschichten aus der Burg Steinach», in: Im grünen Ring 4/2014, S. 5. [ <a href="resources/pdfs/Stadelmann_Betrug_Steinach_2014.pdf" target="_blank">PDF</a> ]</p>
+
+                    <p>Stadelmann, Nicole, Austausch übers Wasser, Wirtschaftliche Beziehungen zwischen dem Nord- und Südufer des Bodensees, in: Huber-Rebenich Gerlinde / Rohr Christian / Stolz Michael (Hg.), Wasser in der mittelalterlichen Kultur: Gebrauch – Wahrnehmung – Symbolik, Berlin, Boston 2017, S. 206-220. [ <a href="resources/pdfs/Stadelmann_Austausch_uebers_Wasser_2017.pdf" target="_blank">PDF</a> ]</p>
+
+                    <p>Stadelmann, Nicole, Ein Zürcher Knopfmacherlehrling gerät in St. Gallen auf Abwege, in: Mitarbeiterzeitschrift der Ortsbürgergemeinde St. Gallen 1/2019, S. 4-5. [ <a href="resources/pdfs/Stadelmann_Knopfmacherlehrling_2019.pdf" target="_blank">PDF</a> ]</p>
+
+                    <p>Sutter, Claudia, Aus dem Stadtarchiv, in: Im grünen Ring 3/2013, S. 6-7. [ <a href="resources/pdfs/Sutter_Aus_dem_Stadtarchiv_2013.pdf" target="_blank">PDF</a> ]</p>
+
+                    <p>Weidenmann, Arman, Aus dem Stadtarchiv, Hieronymus Sailer, ein St. Galler Kaufmann im Zentrum eines Spekulationsskandals, in: Mitarbeiterzeitschrift der Ortsbürgergemeinde St. Gallen 4/2019, S.6-7. [ <a href="resources/pdfs/Weidenmann_Sailer_2019.pdf" target="_blank">PDF</a> ]</p>
+
+                    <p>Weidenmann, Arman, Aus dem Stadtarchiv, «Hans Ulrich und Bartholme Rueger, sendt verdorbenn duc[aten] 285.23», in: Mitarbeiterzeitschrift der Ortsbürgergemeinde St. Gallen 1/2021, S. 6-7. [ <a href="resources/pdfs/Weidenmann_Rueger_2021.pdf" target="_blank">PDF</a> ]</p>
+                </main>
+
+                <footer class="version" style="display:none">
+                    App: v<span data-template="pages:version"/> /
+                    web components: v<pb-version/>
+                </footer>
+            </app-header-layout>
+        </app-drawer-layout>
+
+        <paper-dialog id="downloadDialog">
+            <h2>
+                <pb-i18n key="dialogs.generatingFile">Generating File...</pb-i18n>
+            </h2>
+            <paper-dialog-scrollable>
+                <pb-i18n key="dialogs.downloadMessage"/>
+            </paper-dialog-scrollable>
+            <div class="buttons">
+                <paper-button dialog-confirm="dialog-confirm" autofocus="autofocus">
+                    <pb-i18n key="dialogs.close">Close</pb-i18n>
+                </paper-button>
+            </div>
+        </paper-dialog>
+
+        <paper-dialog id="errorDialog">
+            <h2>
+                <pb-i18n key="dialogs.error">Error</pb-i18n>
+            </h2>
+            <paper-dialog-scrollable/>
+            <div class="buttons">
+                <paper-button dialog-confirm="dialog-confirm" autofocus="autofocus">
+                    <pb-i18n key="dialogs.close">Close</pb-i18n>
+                </paper-button>
+            </div>
+        </paper-dialog>
+    </pb-page>
+
+    <div class="splash"/>
+
+    <footer data-template="templates:include" data-template-path="templates/footer.html"/>
+    <script data-template="templates:include" data-template-path="templates/matomo.html"/>
+</body>
+
+</html>

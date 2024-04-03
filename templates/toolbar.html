@@ -1,0 +1,43 @@
+<app-toolbar class="toolbar" sticky="sticky">
+    <a href="${app}/start.html" data-template="pages:parse-params">
+        <paper-icon-button icon="icons:folder-open"/>Missiven
+    </a>
+    <pb-toggle-feature class="toolbar-button__label" name="mode" global="" selector=".pb-container" default="off" emit="transcription" subscribe="transcription" data-i18n="[title]view-switch" title="">
+        <pb-i18n key="view-normalized"/>
+    </pb-toggle-feature>
+    <paper-menu-button>
+        <paper-button slot="dropdown-trigger">
+            <paper-icon-button class="toolbar-button__label" icon="file-download"/>
+        </paper-button>
+        <paper-listbox slot="dropdown-content" data-template="pages:parse-params">
+            <paper-item>
+                <a href="${app}/api/document/${doc}" target="_new" data-template="pages:parse-params">TEI-XML</a>
+           </paper-item>
+            <paper-item>
+                <a href="${app}/print/${doc}" target="_new" data-template="pages:parse-params">PDF</a>
+            </paper-item>
+            <paper-item>
+                <a href="${app}/api/images/${doc}" data-template="pages:parse-params">JPG (Faksimile)</a>
+            </paper-item>
+        </paper-listbox>
+    </paper-menu-button>
+    <pb-restricted login="login">
+        <pb-ajax subscribe="transcription" emit="transcription" url="api/odd" method="post" event="pb-refresh" title="Recompile ODD" data-i18n="[title]menu.admin.recompile">
+            <h3 slot="title">
+                <pb-i18n key="menu.admin.recompile"/>
+            </h3>
+            <paper-icon-button icon="icons:refresh"/>
+        </pb-ajax>
+    </pb-restricted>
+
+    <pb-navigation emit="transcription" keyboard="left" subscribe="transcription" direction="backward" unit="page">
+        <paper-icon-button icon="icons:chevron-left"/>
+    </pb-navigation>
+
+    <pb-navigation emit="transcription" keyboard="right" subscribe="transcription" direction="forward" unit="page">
+        <paper-icon-button icon="icons:chevron-right"/>
+    </pb-navigation>
+
+<!--    <paper-icon-button icon="icons:menu" drawer-toggle="drawer-toggle"/>-->
+    <pb-progress subscribe="transcription" indeterminate="indeterminate" bottom-item="bottom-item"/>
+</app-toolbar>

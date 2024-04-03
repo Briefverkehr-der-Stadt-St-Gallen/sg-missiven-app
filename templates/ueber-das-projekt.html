@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html lang="de">
+
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=yes"/>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Oswald"/>
+    <title data-template="config:app-title"/>
+
+    <meta name="description" content="Briefverkehr der Stadt St. Gallen"/>
+    <meta itemprop="name" content="Briefverkehr der Stadt St. Gallen"/>
+    <meta itemprop="description" content="Briefverkehr der Stadt St. Gallen"/>
+    <meta property="og:locale" content="de"/>
+    <meta property="og:url" content=""/>
+    <meta property="og:site_name" content="Briefverkehr der Stadt St. Gallen"/>
+    <meta property="og:title" content="Briefverkehr der Stadt St. Gallen"/>
+    <meta property="og:description" content="Briefverkehr der Stadt St. Gallen"/>
+
+    <meta content="summary_large_image" name="twitter:card"/>
+    <meta name="twitter:title" content="Briefverkehr der Stadt St. Gallen"/>
+    <meta name="twitter:description" content="Briefverkehr der Stadt St. Gallen"/>
+    <link rel="canonical" href=""/>
+
+    <link rel="shortcut icon" type="image/x-icon" href="resources/images/favicon.ico"/>
+    <link rel="shortcut icon" type="image/png" href="resources/images/favicon-16.png" sizes="16x16"/>
+    <link rel="shortcut icon" type="image/png" href="resources/images/favicon-32.png" sizes="32x32"/>
+    <!-- For iPhone -->
+    <link rel="apple-touch-icon" type="image/png" sizes="180x180" href="apple-touch-icon.png"/>
+    <!-- For Android -->
+    <link rel="icon" type="image/png" sizes="512x512" href="resources/images/android-chrome-512x512.png"/>
+    <link rel="icon" type="image/png" sizes="192x192" href="resources/images/android-chrome-192x192.png"/>  <link rel="stylesheet" href="resources/css/theme.css"/>
+    <link rel="stylesheet" href="resources/css/theme-rqzh.css"/>
+    <script type="module" src="pb-components-bundle.js" data-template="pages:load-components"/>
+    <script src="resources/scripts/app/app.js"/>
+    <script src="resources/scripts/app/index.js"/>
+    <custom-style>
+        <style>
+            html {
+                --landing-page-max-height:60vh;
+                --page-max-width:62rem;
+            }
+            main {
+                margin: 32px auto 0 auto;
+                max-width: var(--page-max-width);
+            }
+
+            h1 {
+                margin-top: 0;
+            }
+
+            .split-two {
+                display: grid;
+                grid-template-columns: 40% auto;
+                max-width: var(--page-max-width);
+                width:100%;
+                grid-gap:1rem;
+
+            }
+            .left {
+                display:grid;
+                grid-template-rows: repeat(5,1fr);
+                grid-gap:1rem;
+            }
+            .right {
+                max-height: var(--landing-page-max-height);
+                max-width: calc(var(--page-max-width) / 2);
+                justify-self: center;
+            }
+            .title-image {
+                display:block;
+            }
+
+            .title-image img {
+                max-height: var(--landing-page-max-height);
+
+            }
+            .box {
+                box-sizing: border-box;
+                border:1px solid black;
+            }
+            .box:hover {
+                opacity: 80%;
+                transition: opacity 0.6s;
+            }
+            .box.edition{ background-color: rgba(0, 118, 189,0.3)}
+            .box.sources{ background-color: rgba(0, 118, 189,0.3)}
+            .box.places{ background-color: rgba(0, 118, 189,0.2)}
+            .box.people{ background-color: rgba(0, 118, 189,0.2)}
+            .box.keywords{ background-color:rgba(0, 118, 189,0.2)}
+
+            .box .bottom{
+                padding-left:1rem;
+                padding-right:1rem;
+            }
+
+            @media (max-width: 1023px) {
+                main {
+                    display: block;
+                    margin: 32px 10px 0 10px;
+                }              
+            }
+        </style>
+    </custom-style>
+</head>
+
+<body>
+    <pb-page data-template="pages:pb-page" locales="resources/i18n/{{ns}}/{{lng}}.json" require-language="require-language" unresolved="unresolved" api-version="1.0.0">
+        <app-drawer-layout force-narrow="force-narrow">
+
+            <app-drawer data-template="templates:include" data-template-path="templates/drawer.html"/>
+
+            <app-header-layout>
+
+                <app-header slot="header" reveals="reveals" fixed="fixed" effects="waterfall">
+                    <app-toolbar data-template="templates:include" data-template-path="templates/menu.html"/>
+                </app-header>
+
+                <main class="homepage">
+                    <h1>Über das Projekt</h1>
+
+                    <h2>Hintergrund</h2>
+
+                    <p>Dem Austausch von schriftlicher Information dienten in früheren Jahrhunderten meist Briefe, die Boten überbrachten. Die handschriftlichen Briefe werden in der Fachsprache <i>Missiven</i> genannt; das Wort leitet sich vom Lateinischen <i>mittere</i> im Sinne von «zustellen, senden» ab. Missiven sind adressierte und mit einem Siegel verschlossene Briefe, die von herrschaftlichen, städtischen oder privaten Nachrichtendiensten zugestellt wurden. Versandt und empfangen wurden die Missiven von amtlichen Stellen oder Privatpersonen. Diese Art der schriftlichen Kommunikation setzte im Spätmittelalter ein und nahm im Laufe der Frühen Neuzeit exponentiell zu. Die Besonderheit von Briefen im Vergleich zu anderen Schriftstücken besteht darin, dass sie einen hohen Aktualitätsbezug aufweisen und dass zu einem Brief oft auch Antwortschreiben erhalten sind. Missiven verdichten und erweitern dadurch das historische Informationsangebot enorm; dies macht sie für die Geschichtsforschung ganz besonders interessant.</p>
+
+                    <h2>Textkorpus</h2>
+
+                    <p>Missiven stellen in vielen Archiven einen grossen Bestand dar, der weitestgehend noch unerschlossen ist. Im Stadtarchiv und in der Vadianischen Sammlung der Ortsbürgergemeinde St. Gallen sind für die Zeit von 1400 bis 1800 rund 30’000 solcher Briefe – teilweise mit Beilagen – erhalten. Empfänger war in der Regel der städtische Rat von St. Gallen. Die Themenvielfalt ist gross; es geht beispielsweise um den Güteraustausch zwischen den Ländern und Städten des Reichs und der Eidgenossenschaft, um Preisabsprachen, um Rechtshilfegesuche bei Strafverfolgungen, aber oft auch um private Angelegenheiten, für die sich der Stadtrat einzusetzen hatte.</p>
+
+                    <p>Damit diese wichtigen Dokumente des Alltags in die Geschichtsforschung einfliessen können, werden Missiven und Missivenentwürfe, welche zwischen 1400 und 1650 datiert sind und sich im Missivenbestand des Stadtarchivs und der Vadianischen Sammlung der Ortsbürgergemeinde St. Gallen befinden, veröffentlicht. Die Missiven werden transkribiert, ausgezeichnet und gemeinsam mit den Digitalfaksimile der Vorlagen barrierefrei als Digitale Edition publiziert. Die Beilagen der Missiven werden vorderhand nur als Regesten erfasst. Die Veröffentlichung erfolgt in Etappen.</p>
+
+                    <h2>Technisches</h2>
+
+                    <p>Die Vorarbeiten (Metadaten, Transkription) erfolgen in einfachen Textdateien (Metadaten in YAML; zeilengenaue Transkriptionen mit Angabe der Bilddateien) aus denen per Skript <a href="https://tei-c.org/" target="_blank">TEI</a>-Dateien erstellt werden. Anschliessend werden die Missiven mit dem Annotations-Tool des <a href="https://teipublisher.com" target="_blank">TEI Publishers</a> ausgezeichnet. Als Registerdatenbank (Namen, Orte, Schlagworte) wird <a href="https://www.anton.ch" target="_blank">Anton</a> verwendet. Für die Publikation werden die Registerdaten aus Anton als TEI exportiert, so dass sämtliche Quelldaten als XML vorliegen. Die XML-Dateien werden mit <a href="https://git-scm.com/" target="_blank">Git</a> verwaltet. Für die Präsentation der Edition wird der TEI Publisher verwendet.</p>
+                </main>
+
+                <footer class="version" style="display:none">
+                    App: v<span data-template="pages:version"/> /
+                    web components: v<pb-version/>
+                </footer>
+            </app-header-layout>
+        </app-drawer-layout>
+
+        <paper-dialog id="downloadDialog">
+            <h2>
+                <pb-i18n key="dialogs.generatingFile">Generating File...</pb-i18n>
+            </h2>
+            <paper-dialog-scrollable>
+                <pb-i18n key="dialogs.downloadMessage"/>
+            </paper-dialog-scrollable>
+            <div class="buttons">
+                <paper-button dialog-confirm="dialog-confirm" autofocus="autofocus">
+                    <pb-i18n key="dialogs.close">Close</pb-i18n>
+                </paper-button>
+            </div>
+        </paper-dialog>
+
+        <paper-dialog id="errorDialog">
+            <h2>
+                <pb-i18n key="dialogs.error">Error</pb-i18n>
+            </h2>
+            <paper-dialog-scrollable/>
+            <div class="buttons">
+                <paper-button dialog-confirm="dialog-confirm" autofocus="autofocus">
+                    <pb-i18n key="dialogs.close">Close</pb-i18n>
+                </paper-button>
+            </div>
+        </paper-dialog>
+    </pb-page>
+
+    <div class="splash"/>
+
+    <footer data-template="templates:include" data-template-path="templates/footer.html"/>
+    <script data-template="templates:include" data-template-path="templates/matomo.html"/>
+</body>
+
+</html>

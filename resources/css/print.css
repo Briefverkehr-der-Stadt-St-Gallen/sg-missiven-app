@@ -1,0 +1,123 @@
+@media print {
+
+    @prince-pdf {
+        -prince-pdf-page-layout: two-column-right;
+    }
+
+    @page {
+        size: A4;
+
+        @footnote {
+            float: bottom;
+            margin-top: 1em;
+            font-size: var(--pb-footnote-font-size);
+            font-family: var(--pb-footnote-font-family);
+            font-weight: var(--pb-footnote-font-weight);
+            color: var(--pb-footnote-color);
+        }
+    }
+
+    @page:left {
+        margin-left: 3cm;
+        margin-right: 2cm;
+
+        @bottom-left-corner {
+            content: counter(page);
+        }
+    }
+
+    @page:right {
+        margin-left: 2cm;
+        margin-right: 3cm;
+
+        @bottom-right-corner {
+            content: counter(page);
+        }
+    }
+
+    body {
+        --pb-base-font-family: "New Helvetica", "Helvetica", "Arial";
+        --pb-content-font-family: "New Helvetica", "Helvetica", "Arial";
+        --pb-content-font-size: .95rem;
+
+        --pb-footnote-font-size: 10pt;
+        --pb-footnote-font-family: var(--pb-content-font-family);
+        --pb-footnote-font-weight: var(--pb-content-font-weight);
+        --pb-footnote-color: #303030;
+        --pb-footnote-padding: 0 0 0 .25em;
+
+        font-family: var(--pb-content-font-family);
+        font-size: var(--pb-content-font-size);
+        line-height: var(--pb-base-line-height);
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+        line-height: 1.2;
+    }
+
+    h1 {
+        font-size: 2.25rem;
+        font-weight: 400;
+    }
+    h2 {
+        font-size: 2rem;
+    }
+
+    h3 {
+        font-size: 1.5rem;
+    }
+
+    h4 {
+        font-size: 1.3rem;
+    }
+
+    h5 {
+        font-size: 1.15rem;
+        margin: 0.625rem 0;
+    }
+
+    :root {
+        --pb-h1-font-size: 2.25rem;
+        --pb-h2-font-size: 2rem;
+        --pb-h3-font-size: 1.5rem;
+        --pb-h4-font-size: 1.3rem;
+        --pb-h5-font-size: 1.15rem;
+    }
+    
+    .note {
+        float: footnote;
+        counter-increment: footnote;
+        padding: var(--pb-footnote-padding);
+    }
+
+    ::footnote-call {
+        content: counter(footnote, decimal);
+        font-size: var(--pb-footnote-font-size);
+        vertical-align: super;
+    }
+
+    ::footnote-marker {
+        content: counter(footnote-marker, decimal) ". ";
+        font-size: var(--pb-footnote-font-size);
+        vertical-align: super;
+    }
+
+    @supports (-prince-float: sidenote) {
+        ::footnote-marker {
+            content: counter(footnote, decimal) ". ";
+        }
+    }
+
+    pb-code-highlight {
+        --pb-code-highlight-white-space: pre-wrap;
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+        break-after: avoid;
+        font-family: var(--pb-content-font-family);
+    }
+
+    .hidden {
+        display: none;
+    }
+}

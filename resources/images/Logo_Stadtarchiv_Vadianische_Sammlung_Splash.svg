@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   viewBox="0 0 51.112901 50.470339"
+   version="1.1"
+   id="svg3"
+   sodipodi:docname="Logo_Stadtarchiv_Vadianische_Sammlung.svg"
+   inkscape:version="1.3 (0e150ed6c4, 2023-07-21)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview3"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:zoom="4.3904797"
+     inkscape:cx="93.156108"
+     inkscape:cy="25.737507"
+     inkscape:window-width="1920"
+     inkscape:window-height="1130"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="g3" />
+  <defs
+     id="defs1">
+    <style
+       id="style1">.cls-1{mix-blend-mode:multiply;}.cls-2{isolation:isolate;}.cls-3{fill:#1aa538;}.cls-3,.cls-5{stroke-width:0px;}.cls-5{fill:#0e51a0;}</style>
+  </defs>
+  <g
+     class="cls-2"
+     id="g3"
+     transform="translate(-4.73331,-5.37252)">
+    <g
+       id="Ebene_1">
+      <path
+         class="cls-3"
+         d="M 29.41658,5.37253 29.40147,19.365 c 0,0 0.08705,-0.0048 0.24542,-0.0048 1.22105,0 6.69823,0.2702 9.71337,4.97123 1.63149,2.54244 2.89605,7.85641 1.19203,10.92414 -1.35585,2.43968 -4.21261,6.71938 -10.28823,6.71938 -8.30553,0 -11.99044,-5.0879 -11.99044,-10.55601 0,-4.31537 1.67743,-8.64948 3.47515,-10.06699 L 11.22178,13.20838 c -1.85877,2.38829 -6.48847,9.19714 -6.48847,17.96873 0,11.36662 10.38434,24.66575 27.19489,24.66575 16.90061,0 23.91801,-17.10675 23.91801,-23.87147 0,-4.61157 -1.46828,-24.49891 -26.42962,-26.59887"
+         id="path1" />
+      <g
+         class="cls-1"
+         id="g2">
+        <path
+           class="cls-5"
+           d="m 29.49915,12.50139 c -4.65449,0 -9.58401,1.74453 -14.14359,6.77802 -4.18541,4.62063 -3.77013,12.75873 -3.38145,15.34529 l 12.94793,-2.75219 c 0,0 -0.55189,-2.65729 0.82511,-4.14068 1.1473,-1.23676 2.34235,-1.82069 3.63654,-1.82069 0.69334,0 1.41508,0.16744 2.1731,0.49265 2.1731,0.93211 3.54708,3.48905 2.19547,6.50238 -0.77132,1.72035 -3.14148,2.45418 -3.14148,2.45418 l 2.9281,13.35354 C 35.88909,48.07556 46.34899,44.43962 48.2797,35.67468 50.34641,26.29619 46.49407,18.17926 39.65923,14.9858 36.65014,13.57978 33.15988,12.50139 29.49915,12.50139"
+           id="path2" />
+      </g>
+    </g>
+  </g>
+</svg>

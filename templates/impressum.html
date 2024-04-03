@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html lang="de">
+
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=yes"/>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Oswald"/>
+    <title data-template="config:app-title"/>
+
+    <meta name="description" content="Briefverkehr der Stadt St. Gallen"/>
+    <meta itemprop="name" content="Briefverkehr der Stadt St. Gallen"/>
+    <meta itemprop="description" content="Briefverkehr der Stadt St. Gallen"/>
+    <meta property="og:locale" content="de"/>
+    <meta property="og:url" content=""/>
+    <meta property="og:site_name" content="Briefverkehr der Stadt St. Gallen"/>
+    <meta property="og:title" content="Briefverkehr der Stadt St. Gallen"/>
+    <meta property="og:description" content="Briefverkehr der Stadt St. Gallen"/>
+
+    <meta content="summary_large_image" name="twitter:card"/>
+    <meta name="twitter:title" content="Briefverkehr der Stadt St. Gallen"/>
+    <meta name="twitter:description" content="Briefverkehr der Stadt St. Gallen"/>
+    <link rel="canonical" href=""/>
+
+    <link rel="shortcut icon" type="image/x-icon" href="resources/images/favicon.ico"/>
+    <link rel="shortcut icon" type="image/png" href="resources/images/favicon-16.png" sizes="16x16"/>
+    <link rel="shortcut icon" type="image/png" href="resources/images/favicon-32.png" sizes="32x32"/>
+    <!-- For iPhone -->
+    <link rel="apple-touch-icon" type="image/png" sizes="180x180" href="apple-touch-icon.png"/>
+    <!-- For Android -->
+    <link rel="icon" type="image/png" sizes="512x512" href="resources/images/android-chrome-512x512.png"/>
+    <link rel="icon" type="image/png" sizes="192x192" href="resources/images/android-chrome-192x192.png"/>    <link rel="stylesheet" href="resources/css/theme.css"/>
+    <link rel="stylesheet" href="resources/css/theme-rqzh.css"/>
+    <script type="module" src="pb-components-bundle.js" data-template="pages:load-components"/>
+    <script src="resources/scripts/app/app.js"/>
+    <script src="resources/scripts/app/index.js"/>
+    <custom-style>
+        <style>
+            html {
+                --landing-page-max-height:60vh;
+                --page-max-width:62rem;
+            }
+            main {
+                margin: 32px auto 0 auto;
+                max-width: var(--page-max-width);
+            }
+
+            h1 {
+                margin-top: 0;
+            }
+
+            .split-two {
+                display: grid;
+                grid-template-columns: 40% auto;
+                max-width: var(--page-max-width);
+                width:100%;
+                grid-gap:1rem;
+
+            }
+            .left {
+                display:grid;
+                grid-template-rows: repeat(5,1fr);
+                grid-gap:1rem;
+            }
+            .right {
+                max-height: var(--landing-page-max-height);
+                max-width: calc(var(--page-max-width) / 2);
+                justify-self: center;
+            }
+            .title-image {
+                display:block;
+            }
+
+            .title-image img {
+                max-height: var(--landing-page-max-height);
+
+            }
+            .box {
+                box-sizing: border-box;
+                border:1px solid black;
+            }
+            .box:hover {
+                opacity: 80%;
+                transition: opacity 0.6s;
+            }
+            .box.edition{ background-color: rgba(0, 118, 189,0.3)}
+            .box.sources{ background-color: rgba(0, 118, 189,0.3)}
+            .box.places{ background-color: rgba(0, 118, 189,0.2)}
+            .box.people{ background-color: rgba(0, 118, 189,0.2)}
+            .box.keywords{ background-color:rgba(0, 118, 189,0.2)}
+
+            .box .bottom{
+                padding-left:1rem;
+                padding-right:1rem;
+            }
+
+            @media (max-width: 1023px) {
+                main {
+                    display: block;
+                    margin: 32px 10px 0 10px;
+                }              
+            }
+        </style>
+    </custom-style>
+</head>
+
+<body>
+    <pb-page data-template="pages:pb-page" supported-languages="de" locales="resources/i18n/{{ns}}/{{lng}}.json" require-language="require-language" unresolved="unresolved" api-version="1.0.0">
+        <app-drawer-layout force-narrow="force-narrow">
+
+            <app-drawer data-template="templates:include" data-template-path="templates/drawer.html"/>
+
+            <app-header-layout>
+
+                <app-header slot="header" reveals="reveals" fixed="fixed" effects="waterfall">
+                    <app-toolbar data-template="templates:include" data-template-path="templates/menu.html"/>
+                </app-header>
+
+                <main class="homepage">
+                    <h1>Impressum</h1>
+
+                    <p>© Stadtarchiv und Vadianische Sammlung der Ortsbürgergemeinde St. Gallen</p>
+
+                    <h2>Editionsteam</h2>
+
+                    <p>
+                        <ul class="editionsteam">
+                            <li>Stefan Sonderegger, Leitung</li>
+                            <li>Arman Weidenmann</li>
+                            <li>Alina Mächler</li>
+                            <li>Noëmi Schöb</li>
+                            <li>Werner Hagmann</li>
+                        </ul>
+                    </p>
+
+                    <h2>Förderinstitutionen</h2>
+
+                    <p>
+                        <ul>
+                            <li><a href="http://bss-herisau.ch" target="_blank">Bertold Suhner Stiftung, Herisau</a></li>
+                            <li>Dr. Fred Styger Stiftung für Kultur, Bildung und Wissenschaft, Herisau</li>
+                            <li><a href="http://hoffmann-stiftung.ch/" target="_blank">E. Fritz und Yvonne Hoffmann Stiftung, St. Gallen</a></li>
+                            <li><a href="https://www.ernst-goehner-stiftung.ch/" target="_blank">Ernst Göhner Stiftung, Zug</a></li>
+                            <li><a href="https://www.sg.ch/kultur/kulturfoerderung.html" target="_blank">Kulturförderung des Kantons St. Gallen</a></li>
+                            <li><a href="https://metrohm-stiftung.ch" target="_blank">Metrohm-Stiftung, Herisau</a></li>
+                            <li><a href="https://www.ortsbuerger.ch/startseite.html" target="_blank">Ortsbürgergemeinde St. Gallen</a></li>
+                            <li><a href="https://dietschweiler-stiftung.ch" target="_blank">Ria und Arthur Dietschweiler Stiftung, St. Gallen</a></li>
+                            <li><a href="https://www.snf.ch/de" target="_blank">Schweizerischer Nationalfonds zur Förderung der wissenschaftlichen Forschung</a></li>
+                            <li>Steinegg Stiftung, Herisau</li>
+                            <li><a href="https://smkk-stiftung.ch" target="_blank">Susanne und Martin Knechtli-Kradolfer-Stiftung, St. Gallen</a></li>
+                            <li>Walter und Verena Spühl-Stiftung, St. Gallen</li>
+                        </ul>
+                    </p>
+
+                    <h2>Technische Begleitung und Umsetzung der digitalen Ausgabe</h2>
+
+                    <p>
+                        <ul>
+                            <li>Andreas Kränzle, Zürich (<a href="https://www.anton.ch" target="_blank">Anton</a>, <a href="https://www.k-r.ch" target="_blank">Kränzle &amp; Ritter GmbH</a>)</li>
+                            <li><a href="https://jinntec.de" target="_blank">JinnTec GmbH, Berlin</a></li>
+                        </ul>
+                    </p>
+
+                    <h2>Kooperationspartner</h2>
+
+                    <p>
+                        <ul>
+                            <li><a href="https://www.e-editiones.org" target="_blank">e-editiones</a></li>
+                            <li><a href="https://jinntec.de" target="_blank">JinnTec GmbH, Berlin</a></li>
+                            <li><a href="https://www.k-r.ch" target="_blank">Kränzle &amp; Ritter</a></li>
+                            <li><a href="https://sources-online.org/index.html" target="_blank">Sources Online</a></li>
+                        </ul>
+                    </p>
+
+                    <h2>Lizenz</h2>
+                    <p>
+                        <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank"><img alt="Creative Commons Lizenzvertrag" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a><br /><span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">Briefverkehr der Stadt St. Gallen 1400-1650. Digitale Missivenedition</span> von <a xmlns:cc="http://creativecommons.org/ns#" href="https://missiven.stadtarchiv.ch" property="cc:attributionName" rel="cc:attributionURL" target="_blank">Stadtarchiv und Vadianische Sammlung der Ortsbürgergemeinde St. Gallen</a> ist lizenziert unter einer <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank">Creative Commons Namensnennung - Weitergabe unter gleichen Bedingungen 4.0 International Lizenz</a>.
+                    </p>
+
+                    <p>
+                        <i>Version 09.10.2023</i>
+                    </p>
+
+                    <h2>Bildnachweis der Startseite</h2>
+                    <p>
+                        Warenverkehr auf dem Bodensee, Kalenderbild des St. Galler Buchdruckers Leonhard Straub von 1579. Stadtarchiv und Vadianische Sammlung der Ortsbürgergemeinde St. Gallen, Tr. XXVI, 47,5.
+                    </p>
+                </main>
+
+                <footer class="version" style="display:none">
+                    App: v<span data-template="pages:version"/> /
+                    web components: v<pb-version/>
+                </footer>
+            </app-header-layout>
+        </app-drawer-layout>
+
+        <paper-dialog id="downloadDialog">
+            <h2>
+                <pb-i18n key="dialogs.generatingFile">Generating File...</pb-i18n>
+            </h2>
+            <paper-dialog-scrollable>
+                <pb-i18n key="dialogs.downloadMessage"/>
+            </paper-dialog-scrollable>
+            <div class="buttons">
+                <paper-button dialog-confirm="dialog-confirm" autofocus="autofocus">
+                    <pb-i18n key="dialogs.close">Close</pb-i18n>
+                </paper-button>
+            </div>
+        </paper-dialog>
+
+        <paper-dialog id="errorDialog">
+            <h2>
+                <pb-i18n key="dialogs.error">Error</pb-i18n>
+            </h2>
+            <paper-dialog-scrollable/>
+            <div class="buttons">
+                <paper-button dialog-confirm="dialog-confirm" autofocus="autofocus">
+                    <pb-i18n key="dialogs.close">Close</pb-i18n>
+                </paper-button>
+            </div>
+        </paper-dialog>
+    </pb-page>
+
+    <div class="splash"/>
+
+    <footer data-template="templates:include" data-template-path="templates/footer.html"/>
+    <script data-template="templates:include" data-template-path="templates/matomo.html"/>
+</body>
+
+</html>
