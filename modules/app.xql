@@ -298,7 +298,7 @@ function app:bibl-ptr($node as node(), $model as map(*), $name as xs:string) {
                             element a {
                                 attribute href {$entry/@target/string()},
                                 attribute target { "blank_"},
-                                <pb-i18n key="{$entry/@type/string()}">{$entry/@type/string()}</pb-i18n>
+                                <pb-i18n key="links.{$entry/@type/string()}">{$entry/@type/string()}</pb-i18n>
                             }
                         }
     return
