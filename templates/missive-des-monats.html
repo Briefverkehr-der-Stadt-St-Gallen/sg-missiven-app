@@ -1,0 +1,130 @@
+<html lang="de">
+
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=yes"/>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Oswald"/>
+    <title data-template="config:app-title"/>
+
+    <meta name="description" content="Briefverkehr der Stadt St. Gallen"/>
+    <meta itemprop="name" content="Briefverkehr der Stadt St. Gallen"/>
+    <meta itemprop="description" content="Briefverkehr der Stadt St. Gallen"/>
+    <meta property="og:locale" content="de"/>
+    <meta property="og:url" content=""/>
+    <meta property="og:site_name" content="Briefverkehr der Stadt St. Gallen"/>
+    <meta property="og:title" content="Briefverkehr der Stadt St. Gallen"/>
+    <meta property="og:description" content="Briefverkehr der Stadt St. Gallen"/>
+
+    <meta content="summary_large_image" name="twitter:card"/>
+    <meta name="twitter:title" content="Briefverkehr der Stadt St. Gallen"/>
+    <meta name="twitter:description" content="Briefverkehr der Stadt St. Gallen"/>
+    <link rel="canonical" href=""/>
+
+    <link rel="shortcut icon" type="image/x-icon" href="resources/images/favicon.ico"/>
+    <link rel="shortcut icon" type="image/png" href="resources/images/favicon-16.png" sizes="16x16"/>
+    <link rel="shortcut icon" type="image/png" href="resources/images/favicon-32.png" sizes="32x32"/>
+    <!-- For iPhone -->
+    <link rel="apple-touch-icon" type="image/png" sizes="180x180" href="apple-touch-icon.png"/>
+    <!-- For Android -->
+    <link rel="icon" type="image/png" sizes="512x512" href="resources/images/android-chrome-512x512.png"/>
+    <link rel="icon" type="image/png" sizes="192x192" href="resources/images/android-chrome-192x192.png"/>    <link rel="stylesheet" href="resources/css/theme.css"/>
+    <link rel="stylesheet" href="resources/css/theme-rqzh.css"/>
+    <script type="module" src="pb-components-bundle.js" data-template="pages:load-components"/>
+    <script src="resources/scripts/app/app.js"/>
+    <script src="resources/scripts/app/index.js"/>
+    <custom-style>
+        <style>
+            html {
+                --landing-page-max-height:60vh;
+                --page-max-width:62rem;
+            }
+            main {
+                margin: 32px auto 0 auto;
+                max-width: var(--page-max-width);
+            }
+
+            h1 {
+                margin-top: 0;
+            }
+
+            .split-two {
+                display: grid;
+                grid-template-columns: 40% auto;
+                max-width: var(--page-max-width);
+                width:100%;
+                grid-gap:1rem;
+
+            }
+            .left {
+                display:grid;
+                grid-template-rows: repeat(5,1fr);
+                grid-gap:1rem;
+            }
+            .right {
+                max-height: var(--landing-page-max-height);
+                max-width: calc(var(--page-max-width) / 2);
+                justify-self: center;
+            }
+            .title-image {
+                display:block;
+            }
+
+            .title-image img {
+                max-height: var(--landing-page-max-height);
+
+            }
+            .box {
+                box-sizing: border-box;
+                border:1px solid black;
+            }
+            .box:hover {
+                opacity: 80%;
+                transition: opacity 0.6s;
+            }
+            .box.edition{ background-color: rgba(0, 118, 189,0.3)}
+            .box.sources{ background-color: rgba(0, 118, 189,0.3)}
+            .box.places{ background-color: rgba(0, 118, 189,0.2)}
+            .box.people{ background-color: rgba(0, 118, 189,0.2)}
+            .box.keywords{ background-color:rgba(0, 118, 189,0.2)}
+
+            .box .bottom{
+                padding-left:1rem;
+                padding-right:1rem;
+            }
+
+            @media (max-width: 1023px) {
+                main {
+                    display: block;
+                    margin: 32px 10px 0 10px;
+                }              
+            }
+        </style>
+    </custom-style>
+</head>
+
+<body>
+    <pb-page data-template="pages:pb-page" supported-languages="de" locales="resources/i18n/{{ns}}/{{lng}}.json" require-language="require-language" unresolved="unresolved" api-version="1.0.0">
+        <app-drawer-layout force-narrow="force-narrow">
+
+            <app-drawer data-template="templates:include" data-template-path="templates/drawer.html"/>
+
+            <app-header-layout>
+
+                <app-header slot="header" reveals="reveals" fixed="fixed" effects="waterfall">
+                    <app-toolbar data-template="templates:include" data-template-path="templates/menu.html"/>
+                </app-header>
+
+                <main class="homepage">
+                   <pb-markdown url="api/document/pages/6_Missive_des_Monats.md"/>
+                </main>
+            </app-header-layout>
+        </app-drawer-layout>
+    </pb-page>
+
+    <div class="splash"/>
+
+    <footer data-template="templates:include" data-template-path="templates/footer.html"/>
+    <script data-template="templates:include" data-template-path="templates/matomo.html"/>
+</body>
+
+</html>
