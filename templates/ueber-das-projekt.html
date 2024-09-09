@@ -117,39 +117,10 @@
                 <main class="homepage">
                     <pb-markdown url="api/document/pages/2_Ueber_das_Projekt.md"/>
                 </main>
-
-                <footer class="version" style="display:none">
-                    App: v<span data-template="pages:version"/> /
-                    web components: v<pb-version/>
-                </footer>
+                
             </app-header-layout>
         </app-drawer-layout>
 
-        <paper-dialog id="downloadDialog">
-            <h2>
-                <pb-i18n key="dialogs.generatingFile">Generating File...</pb-i18n>
-            </h2>
-            <paper-dialog-scrollable>
-                <pb-i18n key="dialogs.downloadMessage"/>
-            </paper-dialog-scrollable>
-            <div class="buttons">
-                <paper-button dialog-confirm="dialog-confirm" autofocus="autofocus">
-                    <pb-i18n key="dialogs.close">Close</pb-i18n>
-                </paper-button>
-            </div>
-        </paper-dialog>
-
-        <paper-dialog id="errorDialog">
-            <h2>
-                <pb-i18n key="dialogs.error">Error</pb-i18n>
-            </h2>
-            <paper-dialog-scrollable/>
-            <div class="buttons">
-                <paper-button dialog-confirm="dialog-confirm" autofocus="autofocus">
-                    <pb-i18n key="dialogs.close">Close</pb-i18n>
-                </paper-button>
-            </div>
-        </paper-dialog>
     </pb-page>
 
     <div class="splash"/>
