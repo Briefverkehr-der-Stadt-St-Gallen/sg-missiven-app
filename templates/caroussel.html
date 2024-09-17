@@ -1,0 +1,97 @@
+<fx-fore id="caroussel">
+<!--    <fx-replace delay="300" event="ready" ref="instance('vars')/selected" with="instance('highlights')//highlight[random()]"></fx-replace>-->
+
+    <fx-model>
+        <fx-action event="model-construct-done">
+            <fx-send submission="s-load-lang"/>
+        </fx-action>
+
+        <fx-instance id="highlights">
+            <data/>
+        </fx-instance>
+
+        <fx-instance id="vars">
+            <data>
+                <random/>
+                <current/>
+                <selected/>
+                <lang>de</lang>
+            </data>
+        </fx-instance>
+
+        <fx-function signature="random() as xs:integer" type="text/javascript">
+            const data = form.querySelector('#highlights').instanceData;
+            const count = data.firstElementChild.querySelectorAll('highlight').length;
+            return Math.floor(Math.random() * count);
+        </fx-function>
+
+        <fx-function signature="app-root() as xs:string" type="text/javascript">
+            const pbpage = document.querySelector('pb-page');
+            return pbpage.getAttribute('app-root');
+        </fx-function>        
+        <fx-submission id="s-load-lang" url="resources/scripts/app/highlights.xml" replace="instance" instance="highlights" validate="false" method="get">
+
+            <fx-action event="submit-done">                
+                <fx-setvalue ref="instance('vars')/random" value="random() + 1"/>
+                <fx-setvalue ref="instance('vars')/current" value="../random"/>
+                <fx-replace ref="instance('vars')/selected" with="instance('highlights')//highlight[number(instance('vars')/random)]"/>
+            </fx-action>
+
+        </fx-submission>
+    </fx-model>
+
+    <fx-repeat id="r-entries" ref="instance('vars')/highlight">
+        <template>
+            <a href="{link}" class="highlight">
+                <article class="highlight-teaser">
+                    <fx-repeat id="r-text" ref="text">
+                        <template>
+                            <p>{.}</p>
+                        </template>
+                    </fx-repeat>
+                </article>
+                <figure>
+                    <fx-trigger class="prev">
+                        <iron-icon icon="chevron-left"/>
+
+                        <!--
+                        select previous highlight by decrementing the 'current' value in 'vars'. If reaching first
+                        resets the value to the end of the list.
+                        replacing 'highlight' node which contains the wanted highlight from main instance 'highlights'.
+                        -->
+                        <fx-action propagate="stop" if="instance('vars')/current &gt;= 1">
+                            <fx-setvalue ref="instance('vars')/current" value=". - 1"/>
+                            <fx-replace ref="instance('vars')/highlight" with="instance('highlights')//highlight[number(instance('vars')/current)]"/>
+                        </fx-action>
+                        <fx-action propagate="stop" if="instance('vars')/current = 0">
+                            <fx-setvalue ref="instance('vars')/current" value="count(instance('highlights')/highlight)"/>
+                            <fx-replace ref="instance('vars')/highlight" with="instance('highlights')//highlight[number(instance('vars')/current)]"/>
+                        </fx-action>
+
+                    </fx-trigger>
+
+                    <img class="image" src="resources/images/{img}"/>
+
+                    <!--
+                    select next highlight by decrementing the 'current' value in 'vars'.
+                    replacing 'highlight' node which contains the wanted highlight from main instance 'highlights'.
+                    -->
+                    <fx-trigger class="next">
+                        <iron-icon icon="chevron-right"/>
+
+                        <fx-action if="instance('vars')/current le count(instance('highlights')/highlight)">
+                            <fx-setvalue ref="instance('vars')/current" value=". + 1"/>
+                            <fx-replace ref="instance('vars')/highlight" with="instance('highlights')//highlight[number(instance('vars')/current)]"/>
+                        </fx-action>
+
+                        <fx-action if="instance('vars')/current gt count(instance('highlights')/highlight)">
+                            <fx-setvalue ref="instance('vars')/current">1</fx-setvalue>
+                            <fx-replace ref="instance('vars')/highlight" with="instance('highlights')//highlight[1]"/>
+                        </fx-action>
+
+                    </fx-trigger>
+                </figure>
+            </a>
+        </template>
+    </fx-repeat>    
+</fx-fore>

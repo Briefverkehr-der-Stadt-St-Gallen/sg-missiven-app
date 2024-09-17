@@ -1,3 +1,5 @@
+@import "fore.css";
+
 :root {
     --footer-height: 45px;
     --footer-height-total: calc(var(--footer-height) + 1px); /* if border, then + 1px! */
@@ -1303,3 +1305,72 @@ pb-split-list::part(items) span {
     #info iron-icon { display: none !important; }
     pb-facsimile { page-break-inside: avoid; }
 }
+
+
+/* Landing page */
+
+#caroussel{
+    color:black;
+}
+#caroussel a,
+#caroussel a:link,
+#caroussel a:visited{
+    color:black;
+    display: grid;
+    grid-template-columns: 30% 70%;
+    position: relative;
+}
+#caroussel figure fx-trigger {
+    position:absolute;
+    top:10rem;
+    transform:translateY(-50%);
+    background: rgba(255,255,255,0.8);
+    border-radius: 50%;
+    width:3rem;
+    height:3rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+}
+#caroussel figure .prev{
+    left:1rem;
+}
+#caroussel figure .next{
+    right:1rem;
+}
+
+#caroussel figure{
+    position: relative;
+    margin: 0;
+}
+#caroussel img{
+    width:100%;
+    height:100%;
+    object-fit: cover;
+    min-height: 20vh;
+}
+#caroussel img:hover{
+    filter:brightness(1.2);
+}
+
+.highlight {
+    display: grid;
+    grid-template-columns: 3fr 7fr; 
+    height: 20rem;
+    overflow: hidden;
+    background-color: var(--missiven-hellgruen);
+}
+
+.highlight .image {
+    display:block;
+    align-self:center;
+    width: 100%;
+    height: 100%;
+}
+
+.highlight-teaser {
+    margin: 0;
+    padding: 2rem;
+}
+
