@@ -10,6 +10,7 @@
   <available file="${git.repo.path}" type="dir" property="git.present"/>
   <property name="tp.scripts.dir" value="node_modules/@teipublisher/pb-components/dist"/>
   <property name="fore.scripts.dir" value="node_modules/@jinntec/fore/dist"/>
+  <property name="fore.resources.dir" value="node_modules/@jinntec/fore/resources"/>
 
   <target name="clean">
       <delete includeemptydirs="true" failonerror="false">
@@ -48,14 +49,19 @@
               <include name="*.map"/>
           </fileset>
       </copy>
-      <!-- <copy todir="${app.build.dir}/resources/scripts">
+      <copy todir="${app.build.dir}/resources/scripts">
           <fileset dir="${fore.scripts.dir}">
               <include name="*.js"/>
               <include name="*.map"/>
           </fileset>
-      </copy> -->
+      </copy>
       <copy todir="${app.build.dir}/resources/css">
           <fileset dir="node_modules/@teipublisher/pb-components/css">
+          </fileset>
+      </copy>
+      <copy todir="${app.build.dir}/resources/css">
+          <fileset dir="${fore.resources.dir}">
+          	<include name="*.css"/>
           </fileset>
       </copy>
       <copy todir="${app.build.dir}/resources/lib">

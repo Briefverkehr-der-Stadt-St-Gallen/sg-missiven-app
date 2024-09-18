@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <html lang="de">
 
 <head>
@@ -116,108 +115,10 @@
                 </app-header>
 
                 <main class="homepage">
-                    <h1>Impressum</h1>
-
-                    <p>© Stadtarchiv und Vadianische Sammlung der Ortsbürgergemeinde St. Gallen</p>
-
-                    <h2>Editionsteam</h2>
-
-                    <p>
-                        <ul class="editionsteam">
-                            <li>Stefan Sonderegger, Leitung</li>
-                            <li>Arman Weidenmann</li>
-                            <li>Alina Mächler</li>
-                            <li>Noëmi Schöb</li>
-                            <li>Werner Hagmann</li>
-                        </ul>
-                    </p>
-
-                    <h2>Förderinstitutionen</h2>
-
-                    <p>
-                        <ul>
-                            <li><a href="http://bss-herisau.ch" target="_blank">Bertold Suhner Stiftung, Herisau</a></li>
-                            <li>Dr. Fred Styger Stiftung für Kultur, Bildung und Wissenschaft, Herisau</li>
-                            <li><a href="http://hoffmann-stiftung.ch/" target="_blank">E. Fritz und Yvonne Hoffmann Stiftung, St. Gallen</a></li>
-                            <li><a href="https://www.ernst-goehner-stiftung.ch/" target="_blank">Ernst Göhner Stiftung, Zug</a></li>
-                            <li><a href="https://www.sg.ch/kultur/kulturfoerderung.html" target="_blank">Kulturförderung des Kantons St. Gallen</a></li>
-                            <li><a href="https://metrohm-stiftung.ch" target="_blank">Metrohm-Stiftung, Herisau</a></li>
-                            <li><a href="https://www.ortsbuerger.ch/startseite.html" target="_blank">Ortsbürgergemeinde St. Gallen</a></li>
-                            <li><a href="https://dietschweiler-stiftung.ch" target="_blank">Ria und Arthur Dietschweiler Stiftung, St. Gallen</a></li>
-                            <li><a href="https://www.snf.ch/de" target="_blank">Schweizerischer Nationalfonds zur Förderung der wissenschaftlichen Forschung</a></li>
-                            <li>Steinegg Stiftung, Herisau</li>
-                            <li><a href="https://smkk-stiftung.ch" target="_blank">Susanne und Martin Knechtli-Kradolfer-Stiftung, St. Gallen</a></li>
-                            <li>Walter und Verena Spühl-Stiftung, St. Gallen</li>
-                        </ul>
-                    </p>
-
-                    <h2>Technische Begleitung und Umsetzung der digitalen Ausgabe</h2>
-
-                    <p>
-                        <ul>
-                            <li>Andreas Kränzle, Zürich (<a href="https://www.anton.ch" target="_blank">Anton</a>, <a href="https://www.k-r.ch" target="_blank">Kränzle &amp; Ritter GmbH</a>)</li>
-                            <li><a href="https://jinntec.de" target="_blank">JinnTec GmbH, Berlin</a></li>
-                        </ul>
-                    </p>
-
-                    <h2>Kooperationspartner</h2>
-
-                    <p>
-                        <ul>
-                            <li><a href="https://www.e-editiones.org" target="_blank">e-editiones</a></li>
-                            <li><a href="https://jinntec.de" target="_blank">JinnTec GmbH, Berlin</a></li>
-                            <li><a href="https://www.k-r.ch" target="_blank">Kränzle &amp; Ritter</a></li>
-                            <li><a href="https://sources-online.org/index.html" target="_blank">Sources Online</a></li>
-                        </ul>
-                    </p>
-
-                    <h2>Lizenz</h2>
-                    <p>
-                        <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank"><img alt="Creative Commons Lizenzvertrag" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a><br /><span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">Briefverkehr der Stadt St. Gallen 1400-1650. Digitale Missivenedition</span> von <a xmlns:cc="http://creativecommons.org/ns#" href="https://missiven.stadtarchiv.ch" property="cc:attributionName" rel="cc:attributionURL" target="_blank">Stadtarchiv und Vadianische Sammlung der Ortsbürgergemeinde St. Gallen</a> ist lizenziert unter einer <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank">Creative Commons Namensnennung - Weitergabe unter gleichen Bedingungen 4.0 International Lizenz</a>.
-                    </p>
-
-                    <p>
-                        <i>Version 09.10.2023</i>
-                    </p>
-
-                    <h2>Bildnachweis der Startseite</h2>
-                    <p>
-                        Warenverkehr auf dem Bodensee, Kalenderbild des St. Galler Buchdruckers Leonhard Straub von 1579. Stadtarchiv und Vadianische Sammlung der Ortsbürgergemeinde St. Gallen, Tr. XXVI, 47,5.
-                    </p>
+                   <pb-markdown url="api/document/pages/6_Impressum.md"/>
                 </main>
-
-                <footer class="version" style="display:none">
-                    App: v<span data-template="pages:version"/> /
-                    web components: v<pb-version/>
-                </footer>
             </app-header-layout>
         </app-drawer-layout>
-
-        <paper-dialog id="downloadDialog">
-            <h2>
-                <pb-i18n key="dialogs.generatingFile">Generating File...</pb-i18n>
-            </h2>
-            <paper-dialog-scrollable>
-                <pb-i18n key="dialogs.downloadMessage"/>
-            </paper-dialog-scrollable>
-            <div class="buttons">
-                <paper-button dialog-confirm="dialog-confirm" autofocus="autofocus">
-                    <pb-i18n key="dialogs.close">Close</pb-i18n>
-                </paper-button>
-            </div>
-        </paper-dialog>
-
-        <paper-dialog id="errorDialog">
-            <h2>
-                <pb-i18n key="dialogs.error">Error</pb-i18n>
-            </h2>
-            <paper-dialog-scrollable/>
-            <div class="buttons">
-                <paper-button dialog-confirm="dialog-confirm" autofocus="autofocus">
-                    <pb-i18n key="dialogs.close">Close</pb-i18n>
-                </paper-button>
-            </div>
-        </paper-dialog>
     </pb-page>
 
     <div class="splash"/>

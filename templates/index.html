@@ -32,6 +32,7 @@
     <script type="module" src="pb-components-bundle.js" data-template="pages:load-components"/>
     <script src="resources/scripts/app/app.js"/>
     <script src="resources/scripts/app/index.js"/>
+    <script src="resources/scripts/fore.js"/>
     <custom-style>
         <style>
             html {
@@ -125,41 +126,16 @@
 <p>Briefe sind bis heute ein wichtiges Kommunikationsmittel unserer Gesellschaft. Die St. Galler Missivenedition veröffentlicht in Volltext und Bild die eingegangene Korrespondenz an die Reichsstadt St. Gallen von 1400 bis 1650. Dieses in Etappen angelegte Langzeitprojekt von Stadtarchiv und Vadianischer Sammlung der Ortsbürgergemeinde St. Gallen bietet online Zugang zu weitgehend unbekanntem Quellenmaterial, das vielen Forschungsbereichen als Grundlage dienen kann.</p>
                 
                 <h3>Missive des Monats</h3>
-<p>Jeden Monat zeigen wir ein Highlight aus unserer Edition und vermitteln einen kurzen historischen Kontext. Jeweils abrufbar unter: <a href="https://stadtarchiv.ch/forschungsprojekte/missivenedition/" target="_blank">https://stadtarchiv.ch/forschungsprojekte/missivenedition/</a> und <a href="https://stgallen24.ch/" target="_blank">https://stgallen24.ch/</a>
+<p>Jeden Monat zeigen wir ein Highlight aus unserer Edition und vermitteln einen kurzen historischen Kontext. Die Missive des Monats erscheint jeden ersten Freitag im Monat auf <a href="https://stgallen24.ch/" target="_blank">stgallen24</a>
                         </p>
+                <section class="highlights">   
+                    <fx-fore src="${app}/caroussel.html" data-template="pages:parse-params"/> </section>
+                
 </main>
-                <footer class="version" style="display:none">
-                    App: v<span data-template="pages:version"/> /
-                    web components: v<pb-version/>
-                </footer>
+
             </app-header-layout>
         </app-drawer-layout>
 
-        <paper-dialog id="downloadDialog">
-            <h2>
-                <pb-i18n key="dialogs.generatingFile">Generating File...</pb-i18n>
-            </h2>
-            <paper-dialog-scrollable>
-                <pb-i18n key="dialogs.downloadMessage"/>
-            </paper-dialog-scrollable>
-            <div class="buttons">
-                <paper-button dialog-confirm="dialog-confirm" autofocus="autofocus">
-                    <pb-i18n key="dialogs.close">Close</pb-i18n>
-                </paper-button>
-            </div>
-        </paper-dialog>
-
-        <paper-dialog id="errorDialog">
-            <h2>
-                <pb-i18n key="dialogs.error">Error</pb-i18n>
-            </h2>
-            <paper-dialog-scrollable/>
-            <div class="buttons">
-                <paper-button dialog-confirm="dialog-confirm" autofocus="autofocus">
-                    <pb-i18n key="dialogs.close">Close</pb-i18n>
-                </paper-button>
-            </div>
-        </paper-dialog>
     </pb-page>
 
     <div class="splash"/>
