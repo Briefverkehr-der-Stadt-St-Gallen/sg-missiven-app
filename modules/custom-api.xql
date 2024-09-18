@@ -371,7 +371,7 @@ declare function api:facets-search($request as map(*)) {
 };
 
 declare function api:prepare-entry($image as xs:string+) {
-    let $url := 'https://apps.existsolutions.com/cantaloupe/iiif/2/sg-missiven!' || $image || '/full/full/0/default.jpg'
+    let $url := 'https://media.sources-online.org/cantaloupe/iiif/2/sg-missiven!' || $image || '/full/full/0/default.jpg'
     let $object := hc:send-request(<hc:request method='GET' href="{$url}"></hc:request>)
     return
         <entry name="{$image}" type="binary" method="store">{$object[2]}</entry>
