@@ -187,7 +187,7 @@
                     <model predicate="ancestor::back//orig" behaviour="inline"/>
                     <model predicate="parent::del or parent::abbr or parent::corr or parent::lem or parent::rdg" behaviour="inline"/>
                     <model behaviour="alternate" cssClass="text-critical">
-            <param name="default" value="('[', . ,']')"/>
+            <param name="default" value="."/>
             <param name="alternate" value="ec:label('unclear-rdg')"/>
         </model>
                 </elementSpec>
