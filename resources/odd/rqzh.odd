@@ -186,10 +186,9 @@
                 <elementSpec ident="unclear" mode="change">
                     <model predicate="ancestor::back//orig" behaviour="inline"/>
                     <model predicate="parent::del or parent::abbr or parent::corr or parent::lem or parent::rdg" behaviour="inline"/>
-                    <model behaviour="alternote" cssClass="text-critical">
-            <param name="content" value="'[' || . || ']'"/>
+                    <model behaviour="alternate" cssClass="text-critical">
+            <param name="default" value="('[', . ,']')"/>
             <param name="alternate" value="ec:label('unclear-rdg')"/>
-            <param name="type" value="'text-critical'"/>
         </model>
                 </elementSpec>
                 <elementSpec ident="corr" mode="change">
