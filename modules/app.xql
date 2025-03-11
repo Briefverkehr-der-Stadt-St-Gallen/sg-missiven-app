@@ -115,7 +115,7 @@ declare function app:api-keys($refs as xs:string*) {
 declare function app:meta($node as node(), $model as map(*)) {
     let $data := config:get-document($model?doc)
     let $site := config:expath-descriptor()/expath:title/string()
-    let $title := $data//tei:sourceDesc/tei:msDesc/tei:head => normalize-space()
+    let $title := $data//tei:fileDesc/tei:titleStmt/tei:title => normalize-space()
     let $description := $data//tei:sourceDesc/tei:msDesc/tei:msContents/tei:summary => normalize-space()
     return
         map {
