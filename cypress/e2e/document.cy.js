@@ -4,7 +4,8 @@ describe('Single document check', () => {
   });
 
   it('Check meta title', () => {
-    cy.title().should('not.be.empty');
+    cy.title().should('not.be.empty')
+    .should('eq', 'St. Galler Missiven: StadtASG Missive, Nr. 6');
   });
 
   it.skip('Check meta description', () => {

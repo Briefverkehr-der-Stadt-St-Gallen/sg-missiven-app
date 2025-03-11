@@ -40,10 +40,11 @@ describe('Persons register check', () => {
 
     })
 
-    it('Serch results for “Amb” in search field is equal 1', () => {
+    it('Serch results for “Ambühl” in search field is equal 1', () => {
         cy.get('input[name="search"]').first().focus()
-            .type('Ambühl{enter}')
-            .wait(10);
+            .wait(1000)
+            .type('Ambühl{enter}', { force: true })
+            .wait(1000);
         cy.get('.people')
             .should('be.visible')
             .should('have.length', 1);

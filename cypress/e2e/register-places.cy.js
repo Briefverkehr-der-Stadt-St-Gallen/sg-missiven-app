@@ -35,7 +35,7 @@ describe('Places register check', () => {
 
   it('Serch results for “Appenzell” in search field is equal 1', () => {
     cy.get('input[name="search"]').first().focus()
-      .type('Appenzell{enter}')
+      .type('Appenzell{enter}', { force: true })
       .wait(10);
     cy.get('.place')
       .should('be.visible')
