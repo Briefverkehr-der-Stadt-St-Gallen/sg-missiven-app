@@ -33,23 +33,23 @@ describe('Places register check', () => {
       .find('pb-geolocation[latitude="47.37766"][longitude="9.54746"][label="Altstätten"]')
   })
 
-  it('Serch results for “Alt” in search field is equal 2', () => {
+  it('Serch results for “Appenzell” in search field is equal 1', () => {
     cy.get('input[name="search"]').first().focus()
-      .type('Alt{enter}')
+      .type('Appenzell{enter}')
       .wait(10);
     cy.get('.place')
       .should('be.visible')
-      .should('have.length', 2);
+      .should('have.length', 1);
       //the url adress has changed
-    cy.url().should('include', 'search=Alt');
+    cy.url().should('include', 'search=Appenzell');
   });
 
-  it.skip('Serch results for “Alt” in address field is equal 2', () => {
-    cy.visit('orte/?search=Alt')
+  it.skip('Serch results for “Appenzell” in address field is equal 1', () => {
+    cy.visit('orte/?search=Appenzell')
     .wait(1000);
     cy.get('.place')
       .should('be.visible')
-      .should('have.length', 2);
+      .should('have.length', 1);
   });
 
 

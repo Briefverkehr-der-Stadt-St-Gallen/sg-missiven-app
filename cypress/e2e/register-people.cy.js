@@ -40,7 +40,7 @@ describe('Persons register check', () => {
 
     })
 
-    it('Serch results for “Alt” in search field is equal 1', () => {
+    it('Serch results for “Amb” in search field is equal 1', () => {
         cy.get('input[name="search"]').first().focus()
             .type('Ambühl{enter}')
             .wait(10);
@@ -51,7 +51,7 @@ describe('Persons register check', () => {
         cy.url().should('include', 'search=Amb');
     });
 
-    it.skip('Serch results for “Alt” in address field is equal 1', () => {
+    it.skip('Serch results for “Amb” in address field is equal 1', () => {
         cy.visit('namen/?search=Amb')
             .wait(10);
         cy.get('.people')
