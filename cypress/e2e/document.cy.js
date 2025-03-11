@@ -35,21 +35,6 @@ describe('Single document check', () => {
       .should('contain', 'Bürgermeister und Rat zu St. Gallen')
   })
 
-  it.only('Organisation of name Bürgermeister und Rat zu St. Gallen description opens register page', () => {
-    cy.get('pb-popover[data-ref="stadtasg-actors-148"]')
-      .find('span[slot="default"]')
-      .eq(0)
-      .trigger('mouseover') // Symuluje najechanie kursorem
-      .should('have.css', 'cursor', 'pointer')
-
-      .click()
-    cy.wait(10)
-
-
-    // Check if exists headline “Name: Bürgermeister und Rat zu St. Gallen”  in new page
-    cy.contains('h1', 'Name: Bürgermeister und Rat zu St. Gallen').should('be.visible')
-      .should('have.id', 'locations');
-  })
 
   it('Organisation of name Bürgermeister und Rat zu St. Gallen link opens register page', () => {
     cy.get('pb-popover[data-ref="stadtasg-actors-148"]')
@@ -59,10 +44,22 @@ describe('Single document check', () => {
       .click({ force: true })
     cy.wait(10)
 
-
     // Check if exists headline “Name: Bürgermeister und Rat zu St. Gallen”  in new page
     cy.contains('h1', 'Name: Bürgermeister und Rat zu St. Gallen').should('be.visible')
       .should('have.id', 'locations');
+  })
+
+  it('Person of name Ulrich Zeph is highlighted in the text after checking name in register', () => {
+    // clicking name in register list
+    cy.get('pb-popover[data-ref=stadtasg-actors-6]')
+      // checking highlight before
+      .should('not.have.class', 'highlight')
+    cy.get('li[data-ref=stadtasg-actors-6]')
+      .find('div#checkboxContainer')
+      .click();
+    // checking highlight after
+    cy.get('pb-popover[data-ref=stadtasg-actors-6]')
+      .should('have.class', 'highlight')
   })
 
 })
