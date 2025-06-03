@@ -116,13 +116,13 @@ declare function app:meta($node as node(), $model as map(*)) {
     let $data := config:get-document($model?doc)
     let $site := config:expath-descriptor()/expath:title/string()
     let $title := $data//tei:fileDesc/tei:titleStmt/tei:title => normalize-space()
-    let $description := $data//tei:sourceDesc/tei:msDesc/tei:msContents/tei:summary => normalize-space()
+    let $description := $data//tei:profileDesc/tei:abstract => normalize-space()
     return
         map {
             "title": string-join(($site, $title), ': '),
             "description": $description,
             "language": "de",
-            "url": "https://rechtsquellen.sources-online.org/" || $model?doc,
+            "url": "https://missiven.stadtarchiv.ch/" || $model?doc,
             "site": $site
         }
 };

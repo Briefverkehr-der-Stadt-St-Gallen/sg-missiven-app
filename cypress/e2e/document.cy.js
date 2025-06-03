@@ -10,7 +10,15 @@ describe('Single document check', () => {
       .should('contain','St. Galler Missiven');
   });
 
-  it.skip('Check meta description', () => {
+  it('Check meta url', () => {
+    cy.get('link[rel="canonical"]')
+      .invoke('attr', 'href')
+      .then((href) => {
+        expect(href.startsWith('https://missiven.stadtarchiv.ch/')).to.be.true;
+      });
+  });
+
+  it('Check meta description', () => {
     cy.get('meta[name="description"]').should('have.attr', 'content').and('not.be.empty');
   });
 
@@ -37,7 +45,6 @@ describe('Single document check', () => {
       .should('contain', 'Organisation: ')
       .should('contain', 'Bürgermeister und Rat zu St. Gallen')
   })
-
 
   it('Organisation of name Bürgermeister und Rat zu St. Gallen link opens register page', () => {
     cy.get('pb-popover[data-ref="stadtasg-actors-148"]')
