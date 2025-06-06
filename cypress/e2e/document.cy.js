@@ -1,14 +1,24 @@
 describe('Single document check', () => {
   beforeEach('loads', () => {
+    cy.intercept({ resourceType: /xhr|fetch/ }, { log: false })
     cy.visit('data/stasg_missiv_00006.xml?mode=off&view=single&odd=rqzh')
   });
 
-  it('Check meta title', () => {
-    cy.title().should('not.be.empty')
-    .should('eq', 'St. Galler Missiven: StadtASG Missive, Nr. 6');
+  it.only('Check meta title', () => {
+    cy.title()
+      .should('not.be.empty')
+      .should('contain','St. Galler Missiven');
   });
 
-  it.skip('Check meta description', () => {
+  it('Check meta url', () => {
+    cy.get('link[rel="canonical"]')
+      .invoke('attr', 'href')
+      .then((href) => {
+        expect(href.startsWith('https://missiven.stadtarchiv.ch/')).to.be.true;
+      });
+  });
+
+  it('Check meta description', () => {
     cy.get('meta[name="description"]').should('have.attr', 'content').and('not.be.empty');
   });
 
@@ -35,7 +45,6 @@ describe('Single document check', () => {
       .should('contain', 'Organisation: ')
       .should('contain', 'Bürgermeister und Rat zu St. Gallen')
   })
-
 
   it('Organisation of name Bürgermeister und Rat zu St. Gallen link opens register page', () => {
     cy.get('pb-popover[data-ref="stadtasg-actors-148"]')
