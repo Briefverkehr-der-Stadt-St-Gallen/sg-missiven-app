@@ -417,7 +417,7 @@ function app:mentions($node as node(), $model as map(*), $type as xs:string) {
             return (collection($config:data-default)/tei:TEI//tei:text//tei:placeName[@ref = $key], collection($config:data-default)/tei:TEI//tei:text//tei:origPlace[@ref = $key])
         case "person"
         case "personGrp"
-            return (collection($config:data-default)/tei:TEI//tei:text//tei:persName[@ref = $key], collection($config:data-default)/tei:TEI//tei:text//tei:orgName[@ref = $key])
+            return (collection($config:data-default)/tei:TEI//tei:text//tei:persName[@ref = $key], collection($config:data-default)/tei:TEI//tei:text//tei:orgName[@ref = $key], collection($config:data-default)/tei:TEI//tei:correspDesc//*[@ref = $key])
         case "keyword"
         case "term"
             return collection($config:data-default)//tei:term[@ref = $key]
@@ -458,7 +458,8 @@ function app:mentions($node as node(), $model as map(*), $type as xs:string) {
                         if($type != "keyword") then (
                         element ul {
                             for $hit in $match
-                            group by $text := normalize-space(string-join($hit/text(), ""))
+                            let $content := if ($hit/ancestor::tei:text) then string-join($hit/text(), "") else string-join($hit/text(), "") || ' (Metadaten)'
+                            group by $text := normalize-space($content)
                             order by $text
                             return 
                                     element li {
