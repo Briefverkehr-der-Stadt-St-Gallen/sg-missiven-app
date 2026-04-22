@@ -1282,7 +1282,7 @@
                     <model predicate="$parameters?header='context'" behaviour="pass-through">
             <param name="content" value="."/>
             <param name="ref" value="@xml:id"/>
-            <param name="value" value="&lt;a href=&#34;../orte/{placeName[@type=&#34;main&#34;]/string()}?key={@xml:id}&#34;&gt;{placeName[@type=&#34;full&#34;]/string()}&lt;/a&gt;"/>
+            <param name="value" value="&lt;a href=&#34;../orte/{@xml:id}&#34;&gt;{placeName[@type=&#34;full&#34;]/string()}&lt;/a&gt;"/>
             <pb:template xmlns="" xml:space="preserve"><li data-ref="[[ref]]">
   <paper-checkbox class="select-facet" title="i18n(highlight-facet)"/>
   <div>[[value]]</div>
@@ -1290,7 +1290,7 @@
         </model>
                     <modelSequence>
             <model behaviour="link">
-                <param name="link" value="'../orte/' || placeName[@type=&#34;main&#34;]/string() || '?key=' || @xml:id"/>
+                <param name="link" value="'../orte/' || @xml:id"/>
                 <param name="content" value="placeName[@type eq 'full']/string()"/>
                 <param name="target" value="'_new'"/>
             </model>

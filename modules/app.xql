@@ -268,17 +268,17 @@ function app:load-place($node as node(), $model as map(*), $name as xs:string, $
         )
 };
 
-declare %templates:default("type", "") %templates:wrap function app:place-type($node as node(), $model as map(*), $name as xs:string) {
+declare %templates:default("type", "") %templates:wrap function app:place-type($node as node(), $model as map(*), $key as xs:string) {
     $model?type
 };
 
-declare %templates:default("description", "")  function app:place-description($node as node(), $model as map(*), $name as xs:string) {
+declare %templates:default("description", "")  function app:place-description($node as node(), $model as map(*), $key as xs:string) {
     let $description := $model?description
     return
         $description
 };
 
-declare %templates:default("sources", "")  function app:place-sources($node as node(), $model as map(*), $name as xs:string) {
+declare %templates:default("sources", "")  function app:place-sources($node as node(), $model as map(*), $key as xs:string) {
     let $sources := $model?sources
     return
         $sources
