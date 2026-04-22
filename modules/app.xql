@@ -369,7 +369,7 @@ function app:keyword-description($node as node(), $model as map(*), $description
     $model?description
 };
 
-declare %templates:default("sources", "")  function app:keyword-sources($node as node(), $model as map(*), $name as xs:string) {
+declare %templates:default("sources", "")  function app:keyword-sources($node as node(), $model as map(*), $key as xs:string) {
     $model?sources
 };
 
