@@ -252,11 +252,9 @@ declare function api:output-split-list-items($list, $letter as xs:string, $searc
                 if(string-length($name)>0)
                 then (
                     let $letterParam := if ($letter = "[A-Z]") then substring($name, 1, 1) else $letter
-                    let $params := "&amp;category=" || $letterParam || "&amp;search=" || $search
-                
                     return
                         <span class="{$reg-type} split-list-item">
-                            <a href="{$name}?{$params}&amp;key={$item/@xml:id}">{$name}</a>
+                            <a href="{$item/@xml:id}">{$name}</a>
                             { api:output-split-list-items-details($item, $reg-type)}
                         </span>
             ) else()
@@ -395,7 +393,7 @@ declare function api:create-actor($node as element()) {
     let $actor := $config:register-person/id($id)
     let $bibls := $actor/descendant::tei:listBibl/descendant::tei:ptr
     let $extRef := head(($bibls[@type = 'gnd'], $bibls[@type = 'viaf'], $bibls[@type = 'histhub'], $bibls[@type = 'ssrq']))
-    let $ref := if ($extRef) then $extRef/@target else 'https://missiven.stadtarchiv.ch/namen/actor?key=' || $id
+    let $ref := if ($extRef) then $extRef/@target else 'https://missiven.stadtarchiv.ch/namen/' || $id
     return
          element {QName("http://www.tei-c.org/ns/1.0", $node/name())} {attribute {"ref"} {$ref}, $node/string()}
 };

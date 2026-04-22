@@ -1117,7 +1117,7 @@
                     <model predicate="matches(@target, '/actors/')" behaviour="link">
             <desc>Internal links to actors</desc>
             <param name="target" value="'_new'"/>
-            <param name="link" value="let $key := substring-after(@target, '/actors/') return '../namen/' ||. || '?&amp;amp;key=stadtasg-actors-' || $key "/>
+            <param name="link" value="let $key := substring-after(@target, '/actors/') return '../namen/' || 'stadtasg-actors-' || $key "/>
         </model>
                     <model behaviour="link">
             <param name="link" value="@target"/>
@@ -1261,7 +1261,7 @@
                     <model predicate="$parameters?header='context'" behaviour="pass-through">
             <param name="content" value="."/>
             <param name="ref" value="@xml:id"/>
-            <param name="value" value="&lt;a href=&#34;../namen/{./persName[@type='main']/string()}?key={@xml:id}&#34;&gt;{./persName[@type='full']/string()}&lt;/a&gt;"/>
+            <param name="value" value="&lt;a href=&#34;../namen/{@xml:id}&#34;&gt;{./persName[@type='full']/string()}&lt;/a&gt;"/>
             <pb:template xmlns="" xml:space="preserve"><li data-ref="[[ref]]">
         <paper-checkbox class="select-facet" title="i18n(highlight-facet)"/>
         <div>[[value]]</div>
@@ -1272,7 +1272,7 @@
                 <param name="content" value="(ec:label('person'), ' ')"/>
             </model>
             <model behaviour="link">
-                <param name="link" value="'../namen/' || persName[@type='main']/string() || '?key=' || @xml:id"/>
+                <param name="link" value="'../namen/' || @xml:id"/>
                 <param name="content" value="persName[@type='full']/string()"/>
                 <param name="target" value="'_new'"/>
             </model>
@@ -1303,7 +1303,7 @@
                     <model predicate="$parameters?header='context'" behaviour="pass-through">
             <param name="content" value="."/>
             <param name="ref" value="@xml:id"/>
-            <param name="value" value="&lt;a href=&#34;../namen/{./orgName[@type='main']}?key={@xml:id}&#34;&gt;{orgName[@type='full']/string()}&lt;/a&gt;"/>
+            <param name="value" value="&lt;a href=&#34;../namen/{@xml:id}&#34;&gt;{orgName[@type='full']/string()}&lt;/a&gt;"/>
             <pb:template xmlns="" xml:space="preserve"><li data-ref="[[ref]]">
   <paper-checkbox class="select-facet" title="i18n(highlight-facet)"/>
   <div>[[value]]</div>
@@ -1314,7 +1314,7 @@
                 <param name="content" value="(ec:label('organisation'), ' ')"/>
             </model>
             <model behaviour="link">
-                <param name="link" value="let $name := if (count(orgName) gt 1) then orgName[@type='main']/string() else orgName/string() return '../namen/' || $name || '?key=' || @xml:id"/>
+                <param name="link" value="'../namen/' || @xml:id"/>
                 <param name="content" value="let $name := if (count(orgName) gt 1) then orgName[@type='main']/string() else orgName/string() return $name"/>
                 <param name="target" value="'_new'"/>
             </model>
@@ -1381,7 +1381,7 @@
             <elementSpec ident="personGrp" mode="add">
                     <model predicate="$parameters?header='context'" behaviour="pass-through">
             <param name="content" value="."/>
-            <param name="value" value="&lt;a href=&#34;../namen/{./persName[@type='main']/string()}?key={@xml:id}&#34;&gt;{persName[@type='full']/string()}&lt;/a&gt;"/>
+            <param name="value" value="&lt;a href=&#34;../namen/{@xml:id}&#34;&gt;{persName[@type='full']/string()}&lt;/a&gt;"/>
             <param name="ref" value="@xml:id"/>
             <pb:template xmlns="" xml:space="preserve"><li data-ref="[[ref]]">
   <paper-checkbox class="select-facet" title="i18n(highlight-facet)"/>
@@ -1393,7 +1393,7 @@
                 <param name="content" value="(ec:label('organisation'), ' ')"/>
             </model>
             <model behaviour="link">
-                <param name="link" value="'../namen/' || persName[@type eq 'main']/string() || '?key=' || @xml:id"/>
+                <param name="link" value="'../namen/' || @xml:id"/>
                 <param name="content" value="persName[@type eq 'full']/string()"/>
                 <param name="target" value="'_new'"/>
             </model>

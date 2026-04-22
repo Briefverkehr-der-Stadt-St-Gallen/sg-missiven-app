@@ -340,7 +340,7 @@ declare %templates:default("name", "")  function app:person-date($node as node()
     $model?date 
 };
 
-declare %templates:default("description", "")  function app:person-description($node as node(), $model as map(*), $name as xs:string) {
+declare %templates:default("description", "")  function app:person-description($node as node(), $model as map(*), $key as xs:string) {
     let $description := $model?description
     return
         $pm-config:web-transform(
@@ -353,7 +353,7 @@ declare %templates:default("description", "")  function app:person-description($
                                 'rqzh.odd')
 };
 
-declare %templates:default("sources", "")  function app:person-sources($node as node(), $model as map(*), $name as xs:string) {
+declare %templates:default("sources", "")  function app:person-sources($node as node(), $model as map(*), $key as xs:string) {
     let $sources := $model?sources
     return
         $sources
