@@ -222,8 +222,8 @@ declare function api:split-list($request as map(*)) {
 declare function api:query-register($reg-type as xs:string, $search as xs:string?) {
     (: let $_ := util:log("info","api:query-register $reg-type: " || $reg-type || " - $search " || $search) :)
     let $facet-string := if ($search and $search != '')
-                        then ( 'name:(' || $search || '*)')
-                        else ( 'name:*')
+                        then ( 'name:(' || $search || '*) OR description:(' || $search || '*)')
+                        else ( 'name:* OR description:*')
     return
     switch($reg-type) 
         case "people" return
