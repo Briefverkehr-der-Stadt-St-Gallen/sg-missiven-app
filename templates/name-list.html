@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <html lang="de">
 
 <head>
@@ -105,50 +104,32 @@
 
                         
                         <div class="list">
+                            <pb-custom-form id="subtypes" auto-submit="input" emit="transcription">
+                            <input type="radio" name="view" value="all" id="all" checked="checked"/>   <label for="all">
+                                Alle
+                           </label>
+                        <input type="radio" name="view" value="person" id="people"/>   <label for="people">
+                                Personen
+                           </label>
+                           <input type="radio" name="view" value="organisation" id="organisations"/>      <label for="organisations">
+                                Körperschaften
+                           </label>
+                           <input type="radio" name="view" value="family" id="family"/>      <label for="family">
+                                Familien
+                           </label>
+                       </pb-custom-form> 
                             <pb-custom-form id="options" auto-submit="paper-input,paper-icon-button" emit="transcription">
                                 <paper-input id="query" name="search" label="Suche" data-template="templates:form-control">
                                     <paper-icon-button icon="search" slot="suffix"/>
                                 </paper-input>
                             </pb-custom-form>
                             
-                            <pb-split-list url="api/register/people" subforms="#options" selected="A" emit="transcription" subscribe="transcription" data-template="pages:parse-params"/>
+                            <pb-split-list url="api/register/people" subforms="#options,#subtypes" selected="A" emit="transcription" subscribe="transcription" data-template="pages:parse-params"/>
                         </div>
                     </div>
                 </section>
-                
-
-                <footer class="version" style="display:none">
-                    App: v<span data-template="pages:version"/> /
-                    web components: v<pb-version/>
-                </footer>
             </app-header-layout>
         </app-drawer-layout>
-
-        <paper-dialog id="downloadDialog">
-            <h2>
-                <pb-i18n key="dialogs.generatingFile">Generating File...</pb-i18n>
-            </h2>
-            <paper-dialog-scrollable>
-                <pb-i18n key="dialogs.downloadMessage"/>
-            </paper-dialog-scrollable>
-            <div class="buttons">
-                <paper-button dialog-confirm="dialog-confirm" autofocus="autofocus">
-                    <pb-i18n key="dialogs.close">Close</pb-i18n>
-                </paper-button>
-            </div>
-        </paper-dialog>
-
-        <paper-dialog id="errorDialog">
-            <h2>
-                <pb-i18n key="dialogs.error">Error</pb-i18n>
-            </h2>
-            <paper-dialog-scrollable/>
-            <div class="buttons">
-                <paper-button dialog-confirm="dialog-confirm" autofocus="autofocus">
-                    <pb-i18n key="dialogs.close">Close</pb-i18n>
-                </paper-button>
-            </div>
-        </paper-dialog>
     </pb-page>
 
     <div class="splash"/>

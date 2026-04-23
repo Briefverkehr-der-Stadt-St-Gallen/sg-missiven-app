@@ -170,8 +170,9 @@ declare function api:split-list($request as map(*)) {
     let $limit := $request?parameters?limit
     (: let $log := util:log("info","api:split-list $search:"||$search || " - $letterParam:"||$letterParam||" - $limit:" || $limit )  :)
     let $reg-type := normalize-space($request?parameters?type)
+    let $subtype := $request?parameters?view
     let $log := util:log("info","api:split-list: registry-type: " || $reg-type)
-    let $items := api:query-register($reg-type,$search)
+    let $items := api:query-register($reg-type, $search, $subtype)
     let $log := util:log("info", "api:split-list found items: " || count($items))
     let $byLetter := 
         map:merge(
@@ -219,11 +220,13 @@ declare function api:split-list($request as map(*)) {
         }
 };
 
-declare function api:query-register($reg-type as xs:string, $search as xs:string?) {
+declare function api:query-register($reg-type as xs:string, $search as xs:string?, $subtype as xs:string*) {
     (: let $_ := util:log("info","api:query-register $reg-type: " || $reg-type || " - $search " || $search) :)
-    let $facet-string := if ($search and $search != '')
+    let $facet-string1 := if ($search and $search != '')
                         then ( 'name:(' || $search || '*) OR description:(' || $search || '*)')
                         else ( 'name:* OR description:*')
+    let $facet-string2 := if ($subtype and not($subtype = ('all', ''))) then ' AND subtype:' || $subtype else ()
+    let $facet-string := $facet-string1 || $facet-string2
     return
     switch($reg-type) 
         case "people" return

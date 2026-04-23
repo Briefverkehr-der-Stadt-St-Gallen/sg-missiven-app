@@ -390,7 +390,7 @@
 						"in": "query",
 						"schema":{
 							"type": "string",
-							"default": "correspondents"
+							"default": "all"
 						}
 					}
 				],
@@ -952,7 +952,7 @@
 						"in": "query",
 						"schema":{
 							"type": "string",
-							"default": "correspondents"
+							"default": "all"
 						}
 					},
                     {
