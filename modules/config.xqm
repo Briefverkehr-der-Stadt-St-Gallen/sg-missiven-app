@@ -62,12 +62,12 @@ declare variable $config:enable-proxy-caching :=
 (:~
  : Should documents be located by xml:id or filename?
  :)
-declare variable $config:address-by-id := false();
+declare variable $config:address-by-id := true();
 
 (:~
  : Set default language for publisher app i18n
  :)
-declare variable $config:default-language := "en";
+declare variable $config:default-language := "de";
 
 (:
  : The default to use for determining the amount of content to be shown
