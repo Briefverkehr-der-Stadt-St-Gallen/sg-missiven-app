@@ -438,7 +438,7 @@ declare function api:corresp($request as map(*)) {
         </fileDesc>
             <profileDesc>
                 {for $doc in $collection 
-                    let $url := "https://missiven.stadtarchiv.ch/data/" || util:document-name($doc)
+                    let $url := "https://missiven.stadtarchiv.ch/missiven/" || $doc/@xml:id
                     let $actionSent := $doc/descendant::tei:correspAction[@type eq 'sent']
                     let $actionReceived := $doc/descendant::tei:correspAction[@type eq 'received']
                     let $senders := ($actionSent/tei:persName, $actionSent/tei:orgName)
