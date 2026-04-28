@@ -39,7 +39,7 @@
             <param name="regest" value=".//abstract/p"/>
             <param name="comment" value=".//fileDesc/notesStmt/note"/>
             <param name="fileDescTitle" value=".//fileDesc//title"/>
-            <param name="year" value=".//publicationStmt/date"/>
+            <param name="year" value=".//publicationStmt/date/string()"/>
             <param name="idno" value=".//sourceDesc/msDesc/msIdentifier/idno"/>
             <param name="link" value="'https://missiven.stadtarchiv.ch/' || root($parameters?root)/@xml:id"/>
             <param name="citation-date" value="let $current-date := format-date(current-date(), '[Y0001]-[M01]-[D01]') return ec:format-date($current-date)"/>
