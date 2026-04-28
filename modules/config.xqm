@@ -615,7 +615,10 @@ declare function config:get-relpath($node as node()) {
 };
 
 declare function config:get-identifier($node as node()) {
-    config:get-relpath($node)
+    if ($config:address-by-id) then
+        config:get-id($node)
+    else
+        config:get-relpath($node)
 };
 
 (:~
