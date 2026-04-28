@@ -468,3 +468,11 @@ declare function api:corresp($request as map(*)) {
         </text>
     </TEI>
     };
+    
+    
+declare function api:letter-redirect($request as map(*)) {
+    let $name := $request?parameters?name
+    let $id := substring-before($name, '.xml')
+    return
+        response:redirect-to(xs:anyURI("../missiven/" ||$id))
+    };

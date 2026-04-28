@@ -111,6 +111,54 @@
 				}
 			}
 		},
+		"/data/{name}": {
+            "get": {
+                "summary": "Redirect to letter",
+                "tags": ["view"],
+                "operationId": "custom:letter-redirect",
+                "parameters": [
+                    {
+                        "name": "name",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }],
+                "responses": {
+					"200": {
+						"description": "HTML of the page",
+						"content": {
+							"text/html": {
+								"schema": {
+									"type": "string"
+								}
+							}
+						}
+					},
+                    "302": {
+						"description": "HTML of the page",
+						"content": {
+							"text/html": {
+								"schema": {
+									"type": "string"
+								}
+							}
+						}
+					},
+					"404": {
+						"description": "The document was not found",
+						"content": {
+							"text/html": {
+								"schema": {
+									"type": "string"
+								}
+							}
+						}
+					}
+				}
+            }
+        },
 		"/impressum": {
 			"get": {
 				"summary": "Show static content page",
