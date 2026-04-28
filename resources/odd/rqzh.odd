@@ -41,7 +41,7 @@
             <param name="fileDescTitle" value=".//fileDesc//title"/>
             <param name="year" value=".//publicationStmt/date/string()"/>
             <param name="idno" value=".//sourceDesc/msDesc/msIdentifier/idno"/>
-            <param name="link" value="'https://missiven.stadtarchiv.ch/' || root($parameters?root)/@xml:id"/>
+            <param name="link" value="'https://missiven.stadtarchiv.ch/missiven/' || ./@xml:id/string()"/>
             <param name="citation-date" value="let $current-date := format-date(current-date(), '[Y0001]-[M01]-[D01]') return ec:format-date($current-date)"/>
             <param name="emptyComment" value="if(.//fileDesc/notesStmt) then () else (&#34;hidden&#34;)"/>
             <param name="recipientsTop3" value="let $action := .//correspAction[@type='received'] let $recipients := ($action/persName, $action/orgName) return  string-join(subsequence($recipients, 1, 3), ', ')"/>
