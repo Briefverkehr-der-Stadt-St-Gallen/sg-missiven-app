@@ -115,7 +115,7 @@ declare
     %templates:wrap
 function app:short-header($node as node(), $model as map(*)) {
         let $work := root($model("work"))/*
-        let $relPath := config:get-identifier($work)
+        let $relPath := 'missiven/' || config:get-identifier($work)
         return
             try {
                 let $config := tpu:parse-pi(root($work), (), ())

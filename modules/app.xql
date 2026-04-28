@@ -141,7 +141,7 @@ declare
     %templates:replace
 function app:short-header-link($node as node(), $model as map(*)) {
     let $work := root($model("work"))/*
-    let $href := config:get-identifier($work)
+    let $href := 'missiven/' || config:get-identifier($work)
     let $thumbnail-src := ($work//tei:body//tei:pb/@facs)[1]
 
     return (
