@@ -39,6 +39,7 @@
             <param name="regest" value=".//abstract/p"/>
             <param name="comment" value=".//fileDesc/notesStmt/note"/>
             <param name="fileDescTitle" value=".//fileDesc//title"/>
+            <param name="year" value=".//publicationStmt/date"/>
             <param name="idno" value=".//sourceDesc/msDesc/msIdentifier/idno"/>
             <param name="link" value="'https://missiven.stadtarchiv.ch/' || root($parameters?root)/@xml:id"/>
             <param name="citation-date" value="let $current-date := format-date(current-date(), '[Y0001]-[M01]-[D01]') return ec:format-date($current-date)"/>
@@ -51,7 +52,7 @@
     <iron-icon icon="icons:info"/>
   </span>
   <pb-popover placement="bottom" for="info">
-      <p><strong>Zitiervorschlag</strong>: [[idno]], Briefverkehr der Stadt St. Gallen 1400-1650. Digitale Missivenedition. Hg v. Stadtarchiv und Vadianischer Sammlung der Ortsbürgergemeinde St. Gallen 2024, <a href="[[link]]">[[link]]</a>, [[citation-date]]</p>
+      <p><strong>Zitiervorschlag</strong>: [[idno]], Briefverkehr der Stadt St. Gallen 1400-1650. Digitale Missivenedition. Hg v. Stadtarchiv und Vadianischer Sammlung der Ortsbürgergemeinde St. Gallen [[year]], <a href="[[link]]">[[link]]</a>, [[citation-date]]</p>
   </pb-popover>  
   
   <h1>[[date]]<br/>[[sendersTop3]] an [[recipientsTop3]]</h1>
