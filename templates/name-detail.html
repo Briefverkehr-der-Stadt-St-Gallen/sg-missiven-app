@@ -96,6 +96,9 @@
                         display: block;
                     }
                 }
+                strong {
+                    font-weight: bold;
+                }
             </style>
         </custom-style>
     </head>
@@ -116,6 +119,7 @@
                         <h1 id="locations">Name: 
                             <span data-template="app:person-name">${title}</span>
                         </h1>
+                        <div data-template="app:permanent-link">${link}</div>
                         <div class="person-description">
                             <p data-template="app:person-description">${description}</p>
                         </div>

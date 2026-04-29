@@ -186,6 +186,7 @@ function app:load-person($node as node(), $model as map(*), $key as xs:string) {
                 "date":common:format-date($date),
                 "description": $person/tei:note[@type="description"]/tei:p,
                 "sources": $person/tei:note[@type="sources"]/tei:p,
+                "url": "namen/" || $key,
                 "data": $person
         }    
 };
@@ -203,7 +204,8 @@ function app:load-keyword($node as node(), $model as map(*), $key as xs:string) 
                 "description": $keyword/tei:note[@type="description"]/tei:p,
                 "sources": $keyword/tei:note[@type="sources"],
                 "data": $keyword,
-                "key":$key
+                "key":$key,
+                "url": "begriffe/" || $key
         }
 };
 
@@ -249,6 +251,7 @@ function app:load-place($node as node(), $model as map(*), $name as xs:string, $
         "type": $type,
         "description": $description,
         "sources": $sources,
+        "url": "orte/" || $key,
         "data": $place
     }
     
@@ -334,6 +337,12 @@ function app:show-map($node as node(), $model as map(*), $name as xs:string) {
 
 declare %templates:default("name", "")  function app:person-name($node as node(), $model as map(*), $name as xs:string) {
     $model?title
+};
+
+declare %templates:default("name", "")  function app:permanent-link($node as node(), $model as map(*), $name as xs:string) {
+    let $link  := "https://missiven.stadtarchiv.ch/" || $model?url
+    return
+        <p><strong>Permalink</strong>: <a href="{$link}">{$link}</a></p>
 };
 
 declare %templates:default("name", "")  function app:person-date($node as node(), $model as map(*), $name as xs:string) {

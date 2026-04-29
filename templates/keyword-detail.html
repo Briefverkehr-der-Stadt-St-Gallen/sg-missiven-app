@@ -105,6 +105,9 @@
                     display: block;
                 }
             }
+            strong {
+                    font-weight: bold;
+                }
         </style>
     </custom-style>
 </head>
@@ -125,6 +128,7 @@
                         <h1 id="locations">Schlagwort:
                             <span data-template="app:keyword-name">${title}</span>
                         </h1>
+                        <div data-template="app:permanent-link">${link}</div>
                         <div class="keyword-description">
                             <p data-template="app:keyword-description">${description}</p>
                         </div>
