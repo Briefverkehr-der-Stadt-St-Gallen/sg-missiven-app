@@ -440,6 +440,7 @@
                 </elementSpec>
                 <elementSpec ident="note" mode="change">
                     <model predicate="$parameters?view='metadata'" behaviour="block"/>
+                    <model predicate="$parameters?view='metadata'" output="print" behaviour="block"/>
                     <model output="print" behaviour="inline" cssClass="note"/>
                     <model predicate="@place" behaviour="note">
             <param name="place" value="@place"/>
