@@ -372,8 +372,8 @@ declare function api:prepare-entry($image as xs:string+) {
     };
 
 declare function api:facsimiles($request as map(*)) {
-    let $doc := xmldb:decode-uri($request?parameters?id)
-    let $images := doc($config:data-root || '/' || $doc)//tei:pb/@facs
+    let $id := xmldb:decode-uri($request?parameters?id)
+    let $images := config:get-document($id)//tei:pb/@facs
     let $entries := for $image in $images return api:prepare-entry($image)
     let $filename := "faksimile.zip"
     return

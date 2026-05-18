@@ -57,7 +57,8 @@ declare function dapi:delete($request as map(*)) {
 };
 
 declare function dapi:source($request as map(*)) {
-    let $doc := xmldb:decode($request?parameters?id)
+    let $id := xmldb:decode($request?parameters?id)
+    let $doc := if ($config:address-by-id) then "data/" || $id || '.xml' else $id
     return
         if ($doc) then
             let $path := xmldb:encode-uri($config:data-root || "/" || $doc)
