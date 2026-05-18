@@ -69,15 +69,16 @@
             <param name="regest" value=".//abstract/p"/>
             <param name="comment" value=".//fileDesc/notesStmt/note"/>
             <param name="fileDescTitle" value=".//fileDesc//title/node()"/>
+            <param name="year" value=".//publicationStmt/date/string()"/>
             <param name="idno" value=".//sourceDesc/msDesc/msIdentifier/idno"/>
-            <param name="link" value="request:get-scheme() || '://' || request:get-server-name() || $global:context-path || '/' || substring-after(document-uri(root(.)), $global:data-root || '/')"/>
+            <param name="link" value="'https://missiven.stadtarchiv.ch/missiven/' || ./@xml:id/string()"/>
             <param name="citation-date" value="format-date(current-date(), &#34;[D]. [MNn] [Y]&#34;)"/>
             <param name="emptyComment" value="if(.//fileDesc/notesStmt) then () else (&#34;hidden&#34;)"/>
             <param name="content" value=".//body"/>
             <pb:template xmlns="" xml:space="preserve"><section class="document-heading">
                 <span id="info">
                     [[fileDescTitle]]            
-                    <span class="note">Zitiervorschlag: [[idno]], Briefverkehr der Stadt St. Gallen 1400-1650. Digitale Missivenedition. Herausgegeben von Stadtarchiv und Vadianische Sammlung der Ortsbürgergemeinde St. Gallen 2023, [[link]], [[citation-date]]</span>
+                    <span class="note">: [[idno]], Briefverkehr der Stadt St. Gallen 1400-1650. Digitale Missivenedition. Hg v. Stadtarchiv und Vadianischer Sammlung der Ortsbürgergemeinde St. Gallen [[year]], <a href="[[link]]">[[link]]</a>, [[citation-date]]</span>
                 </span>
                         <h1>[[date]]<br/>[[persNamesTop3]]</h1>
                         <h2>Regest</h2>
@@ -1119,6 +1120,10 @@
             <desc>Internal links to actors</desc>
             <param name="target" value="'_new'"/>
             <param name="link" value="let $key := substring-after(@target, '/actors/') return '../namen/' || 'stadtasg-actors-' || $key "/>
+        </model>
+<model behaviour="link" predicate="starts-with(@target, 'stasg_missiv')">
+            <param name="link" value="'https://missiven.stadtarchiv.ch/missiven/' || @target"/>
+            <param name="target" value="'_new'"/>
         </model>
                     <model behaviour="link">
             <param name="link" value="@target"/>
