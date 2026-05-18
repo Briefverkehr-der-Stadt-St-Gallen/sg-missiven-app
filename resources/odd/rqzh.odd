@@ -67,7 +67,7 @@
             <param name="date" value="ec:format-date(.//correspAction[@type=&#34;sent&#34;]/date)"/>
             <param name="persNamesTop3" value="string-join(subsequence(.//correspAction[@type='sent']/persName, 1, 3)/text(), ', ')"/>
             <param name="regest" value=".//abstract/p"/>
-            <param name="comment" value=".//fileDesc/notesStmt/note"/>
+            <param name="comment" value=".//fileDesc/notesStmt/note/p"/>
             <param name="fileDescTitle" value=".//fileDesc//title/node()"/>
             <param name="year" value=".//publicationStmt/date/string()"/>
             <param name="idno" value=".//sourceDesc/msDesc/msIdentifier/idno"/>
@@ -440,7 +440,6 @@
                 </elementSpec>
                 <elementSpec ident="note" mode="change">
                     <model predicate="$parameters?view='metadata'" behaviour="block"/>
-                    <model predicate="parent::notesStmnt" output="print" behaviour="block"/>
                     <model output="print" behaviour="inline" cssClass="note"/>
                     <model predicate="@place" behaviour="note">
             <param name="place" value="@place"/>
