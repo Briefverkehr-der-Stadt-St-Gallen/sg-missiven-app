@@ -205,7 +205,7 @@ function app:load-keyword($node as node(), $model as map(*), $key as xs:string) 
                 "sources": $keyword/tei:note[@type="sources"],
                 "data": $keyword,
                 "key":$key,
-                "url": "begriffe/" || $key
+                "url": "schlagworte/" || $key
         }
 };
 
