@@ -1112,10 +1112,6 @@
                     <model predicate="not(@target)" behaviour="inline">
             <desc>Link ohne Verweisadresse</desc>
         </model>
-                    <model predicate="not(text())" behaviour="link">
-            <param name="content" value="@target"/>
-            <param name="link" value="@target"/>
-        </model>
                     <model predicate="matches(@target, '/actors/')" behaviour="link">
             <desc>Internal links to actors</desc>
             <param name="target" value="'_new'"/>
@@ -1124,6 +1120,10 @@
 <model behaviour="link" predicate="starts-with(@target, 'stasg_missiv')">
             <param name="link" value="'https://missiven.stadtarchiv.ch/missiven/' || @target"/>
             <param name="target" value="'_new'"/>
+        </model>
+                            <model predicate="not(text())" behaviour="link">
+            <param name="content" value="@target"/>
+            <param name="link" value="@target"/>
         </model>
                     <model behaviour="link">
             <param name="link" value="@target"/>
