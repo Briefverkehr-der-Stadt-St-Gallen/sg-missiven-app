@@ -222,25 +222,18 @@ declare function api:split-list($request as map(*)) {
 
 declare function api:query-register($reg-type as xs:string, $search as xs:string?, $subtype as xs:string*) {
     (: let $_ := util:log("info","api:query-register $reg-type: " || $reg-type || " - $search " || $search) :)
-    let $facet-string1 := if ($search and $search != '')
+    let $facet-string := if ($search and $search != '')
                         then ( 'name:(' || $search || '*) OR description:(' || $search || '*)')
                         else ( 'name:* OR description:*')
-    let $facet-string2 := if ($subtype and not($subtype = ('all', ''))) then ' AND subtype:' || $subtype else ()
-    let $facet-string := $facet-string1 || $facet-string2
+    let $options:= if (not($subtype = ('all', ''))) then map:merge(($api:REGISTER-LUCENE-OPTIONS, map {
+    "facets": map {
+        "subtype": $subtype
+        }})) else $api:REGISTER-LUCENE-OPTIONS
     return
     switch($reg-type) 
-        case "people" return
-            if ($search and $search != '') 
-            then ( $config:register-person//(tei:person | tei:org | tei:personGrp)[ft:query(., $facet-string)] )
-            else ( $config:register-person//(tei:person | tei:org | tei:personGrp)[ft:query(., $facet-string, $api:REGISTER-LUCENE-OPTIONS)] )
-        case "place" return 
-            if ($search and $search != '') 
-            then ( $config:register-place//tei:place[ft:query(., $facet-string)] ) 
-            else ( $config:register-place//tei:place[ft:query(., $facet-string, $api:REGISTER-LUCENE-OPTIONS)] )
-        case "keyword" return 
-            if ($search and $search != '') 
-            then ( $config:register-keyword//tei:item[ft:query(., $facet-string)] )
-            else ( $config:register-keyword//tei:item[ft:query(., $facet-string, $api:REGISTER-LUCENE-OPTIONS)] )
+        case "people" return ( $config:register-person//(tei:person | tei:org | tei:personGrp)[ft:query(., $facet-string, $options)] )
+        case "place" return ( $config:register-place//tei:place[ft:query(., $facet-string, $options)] )
+        case "keyword" return ( $config:register-keyword//tei:item[ft:query(., $facet-string, $options)] )
         default return
             error($errors:NOT_FOUND, "Register type " || $reg-type || " not found")
 };
