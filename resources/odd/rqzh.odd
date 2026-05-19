@@ -1117,6 +1117,11 @@
             <param name="target" value="'_new'"/>
             <param name="link" value="let $key := substring-after(@target, '/actors/') return '../namen/' || 'stadtasg-actors-' || $key "/>
         </model>
+        <model predicate="matches(@target, '/places/')" behaviour="link">
+            <desc>Internal links to places</desc>
+            <param name="target" value="'_new'"/>
+            <param name="link" value="let $key := substring-after(@target, '/places/') return '../orte/' || 'stadtasg-places-' || $key "/>
+        </model>
 <model behaviour="link" predicate="starts-with(@target, 'stasg_missiv')">
             <param name="link" value="'https://missiven.stadtarchiv.ch/missiven/' || @target"/>
             <param name="target" value="'_new'"/>
